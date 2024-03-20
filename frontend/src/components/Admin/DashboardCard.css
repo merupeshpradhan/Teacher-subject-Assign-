@@ -1,0 +1,40 @@
+/* Dashboard card */
+
+.card-container {
+    padding: 20px;
+    gap: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card-container .cards {
+  width: 300px;
+  height: 120px;
+  background: #11101d;
+  color: white;
+  border-radius: 3px;
+  padding: 0 15px 0px 0px;
+  box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.75);
+}
+.card-container .card .header {
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0px 0px 0px;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.card-container .cards .card .middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0px 20px 15px;
+}
+.card-container .cards .card .middle .detials p a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.card-container .cards .card .middle .detials p a:hover {
+    color: rgba(255, 255, 255, 0.505);
+}
