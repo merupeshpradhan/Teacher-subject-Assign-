@@ -4,17 +4,17 @@ import { FiEdit } from "react-icons/fi";
 import axios from "axios";
 import "./AdminCourse.css";
 
-function CourseDetials() {
-  const [courses, setCourses] = useState([]);
+function AllSubjects() {
+  const [Subjects, setSubjects] = useState([]);
 
   useEffect(() => {
-    fetchCourses();
+    fetchSubjects();
   }, []);
 
-  const fetchCourses = async () => {
+  const fetchSubjects = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/course");
-      setCourses(response.data.data);
+      const response = await axios.get("http://localhost:4000/api/v1/subject");
+      setSubjects(response.data.data);
     } catch (error) {
       console.error("Error fetching courses:", error);
     }
@@ -23,11 +23,13 @@ function CourseDetials() {
   const handleDelete = async (id) => {
     try {
       console.log(id);
-      await axios.delete(`http://localhost:4000/api/v1/course/delete/${id}`,{ withCredentials: true });
+      await axios.delete(`http://localhost:4000/api/v1/course/delete/${id}`, {
+        withCredentials: true,
+      });
       // After successful deletion, fetch courses again to update the list
-      fetchCourses();
+      fetchSubjects();
     } catch (error) {
-      console.error("Error deleting course:", error);
+      console.error("Error deleting Subject:", error);
     }
   };
   return (
@@ -41,17 +43,19 @@ function CourseDetials() {
             <thead>
               <tr>
                 <th>Sl.No</th>
+                <th>Subject Name</th>
                 <th>Course Name</th>
-                <th>Brnch Name</th>
+                <th>Subject Code</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {courses.map((course, index) => (
-                <tr key={course._id}>
+              {Subjects.map((subject, index) => (
+                <tr key={subject._id}>
                   <td>{index + 1}</td>
-                  <td>{course.name}</td>
-                  <td>{course.branch}</td>
+                  <td>{subject.name}</td>
+                  <td>{subject.courseName}</td>
+                  <td>{subject.subjectCode}</td>
                   <td>
                     <MdDeleteForever
                       style={{
@@ -60,7 +64,7 @@ function CourseDetials() {
                         cursor: "pointer",
                         fontSize: "20px",
                       }}
-                      onClick={() => handleDelete(course._id)}
+                      onClick={() => handleDelete(subject._id)}
                     />
                     <FiEdit
                       style={{
@@ -68,7 +72,7 @@ function CourseDetials() {
                         fontSize: "20px",
                         cursor: "pointer",
                       }}
-                      onClick={() => handleEdit(course._id)}
+                      onClick={() => handleEdit(subject._id)}
                     />
                   </td>
                 </tr>
@@ -81,4 +85,4 @@ function CourseDetials() {
   );
 }
 
-export default CourseDetials;
+export default AllSubjects;

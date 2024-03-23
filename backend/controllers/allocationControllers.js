@@ -1,6 +1,8 @@
 import Allocation from '../models/allocationSchema.js';
 import Teacher from '../models/teacherSchema.js';
 import Subject from '../models/subjectSchema.js';
+import { catchAsyncError } from '../middlewares/catchAsynchError.js';
+
 
 // Allocate a teacher to a subject
 export const allocateTeacher = async (req, res, next) => {
@@ -76,3 +78,10 @@ export const deleteAllocation = async (req, res, next) => {
     next(error);
   }
 };
+
+// Get all Allocatated Teacher in Subject
+export const getAllocatedTeacher = catchAsyncError(async (req, res, next) => {
+  const subjectAllocated = await Allocation.find();
+  res.status(200).json({ success: true, count: subjectAllocated.length, data: subjectAllocated });
+});
+
