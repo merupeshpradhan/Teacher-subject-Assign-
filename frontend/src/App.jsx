@@ -18,7 +18,7 @@ import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminSubjects from "./components/Admin/AdminSubjects";
 import AdminCourses from "./components/Admin/AdminCourses";
 import AdminTeacher from "./components/Admin/AdminTeacher";
-import AdminAllocation from "./components/Admin/AdminAllocation";
+import AdminSubjectAllocation from "./components/Admin/AdminSubjectAllocation";
 import TeacherDashboard from "./components/Teacher/TeacherDashboard";
 import TeacherClasses from "./components/Teacher/TeacherClasses";
 import NotFound from "./components/NotFound/NotFound";
@@ -55,7 +55,7 @@ const App = () => {
           <Route path="/admin/courses" element={<AdminCourses />} />
           <Route path="/admin/subjects" element={<AdminSubjects />} />
           <Route path="/admin/teachers" element={<AdminTeacher />} />
-          <Route path="/admin/allocation" element={<AdminAllocation />} />
+          <Route path="/admin/allocation" element={<AdminSubjectAllocation />} />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/classes" element={<TeacherClasses />} />
           <Route path="*" element={<NotFound />} />
