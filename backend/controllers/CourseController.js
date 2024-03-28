@@ -76,3 +76,13 @@ export const getAllCourses = catchAsyncError(async (req, res, next) => {
   const courses = await Course.find();
   res.status(200).json({ success: true, count: courses.length, data: courses });
 });
+
+// Get Course by ID
+export const getCourseById = catchAsyncError(async (req, res, next) => {
+  const { id } = req.params;
+  const course = await Course.findById(id);
+  if (!course) {
+    return next(new ErrorHandler(`Teacher not found with id ${id}`, 404));
+  }
+  res.status(200).json({ success: true, data: course });
+});

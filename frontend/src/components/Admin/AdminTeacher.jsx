@@ -1,10 +1,13 @@
 import React from 'react'
+import TeacherDetials from './TeacherDetials'
 
 const AdminTeacher = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+    <section className='teacherdetials'>
+      <TeacherDetials/>
+    </section>
+    </>
   )
 }
 

@@ -9,6 +9,7 @@
 }
 
 nav {
+  width: 100%;
   background: #11101d;
   padding: 0 20px;
   position: fixed;
@@ -264,8 +265,8 @@ nav .hamburger {
 }
 
 /*---------------------- Admin--------------- */
-.adminPage,
-.coursePage {
+
+.adminPage,.coursePage,.allsubject,.subjectAllocation,.teacherdetials{
   margin: 70px 0px 20px 90px;
   padding: 20px;
   min-height: 90vh;
