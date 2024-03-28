@@ -1,8 +1,15 @@
 import React from 'react'
+import HeroLeft from './HeroLeft'
+import HeroRight from './HeroRight'
 
 function CourseDetials() {
   return (
-    <div>CourseDetials</div>
+    <>
+    <div className='Main' style={{display:"flex",justifycontent: "space-between"}}>
+      <HeroLeft/>
+      <HeroRight/>
+    </div>
+    </>
   )
 }
 

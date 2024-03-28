@@ -263,9 +263,9 @@ nav .hamburger {
   }
 }
 
-
 /*---------------------- Admin--------------- */
-.adminPage,.coursePage{
+.adminPage,
+.coursePage {
   margin: 70px 0px 20px 90px;
   padding: 20px;
   min-height: 90vh;
