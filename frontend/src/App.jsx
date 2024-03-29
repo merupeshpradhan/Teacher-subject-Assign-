@@ -31,7 +31,10 @@ const App = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/v1/user/getuser", { withCredentials: true });
+        const response = await axios.get(
+          "http://localhost:4000/api/v1/user/getuser",
+          { withCredentials: true }
+        );
         setUser(response.data.user);
         setIsAuthorized(true);
       } catch (error) {
@@ -45,7 +48,7 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <Sidebar/>
+        <Sidebar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -55,7 +58,10 @@ const App = () => {
           <Route path="/admin/courses" element={<AdminCourses />} />
           <Route path="/admin/subjects" element={<AdminSubjects />} />
           <Route path="/admin/teachers" element={<AdminTeacher />} />
-          <Route path="/admin/allocation" element={<AdminSubjectAllocation />} />
+          <Route
+            path="/admin/allocation"
+            element={<AdminSubjectAllocation />}
+          />
           <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
           <Route path="/teacher/classes" element={<TeacherClasses />} />
           <Route path="*" element={<NotFound />} />
