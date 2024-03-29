@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import axios, { all } from "axios";
-import "./AdminCourse.css";
 
 function SubjectAllocation() {
   const [subjectAllocation, setSubjectAllocation] = useState([]);

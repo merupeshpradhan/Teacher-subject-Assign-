@@ -30,7 +30,8 @@
 }
 .sidebar .logo-details .logo_name {
   color: #fff;
-  font-size: 13px;
+  padding: 20px;
+  font-size: 20px;
   font-weight: 600;
   opacity: 0;
   /* transition: all 0.5s ease; */
@@ -166,7 +167,7 @@
 .sidebar li i {
   height: 50px;
   line-height: 50px;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 12px;
 }
 .sidebar li.profile {

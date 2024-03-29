@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import axios from "axios";
-import "./AdminCourse.css";
+import "./course.css";
+
 
 function AllSubjects() {
   const [Subjects, setSubjects] = useState([]);
