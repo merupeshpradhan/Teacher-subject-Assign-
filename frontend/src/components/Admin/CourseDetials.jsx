@@ -4,7 +4,6 @@ import "./course.css";
 import toast from "react-hot-toast";
 import { MdOutlineSaveAs } from "react-icons/md";
 import { GiCancel } from "react-icons/gi";
-
 import { MdEdit, MdDelete } from "react-icons/md";
 
 function CourseDetails({ courses, fetchCourses }) {
@@ -53,7 +52,7 @@ function CourseDetails({ courses, fetchCourses }) {
   return (
     <>
       <div className="coursedetails">
-        <h4>All Subjects</h4>
+        <h4>All Courses</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
             <thead>
