@@ -283,6 +283,10 @@ nav .hamburger {
   display: flex;
   justify-content: space-between;
 }
+.subjectAllocation{
+  display: flex;
+  justify-content: space-between;
+}
 
 /* ===============================Toaster Modified===================== */
 .go1579819456 {
@@ -295,13 +299,13 @@ nav .hamburger {
 /* ==============================Responsive============================ */
 
 @media only screen and (max-width: 600px) {
-  .coursePage {
+  .coursePage,.subjectAllocation {
     display: flex;
     flex-direction: column;
   }
 }
-@media only screen and (max-width: 768px) {
-  .coursePage {
+@media only screen and (max-width: 768px),(max-width:940px) {
+  .coursePage ,.subjectAllocation{
     display: flex;
     flex-direction: column;
   }

@@ -46,25 +46,25 @@ function Sidebar() {
             </li>
             <li>
               <Link to={"/admin/courses"} onClick={() => setShow(false)}>
-              <i class='bx bxs-book-reader'></i>
+              <i className='bx bxs-book-reader'></i>
                 <span className="links_name">Courses</span>
               </Link>
             </li>
             <li>
               <Link to={"/admin/subjects"} onClick={() => setShow(false)}>
-              <i class='bx bxs-book'></i>
+              <i className='bx bxs-book'></i>
                 <span className="links_name">Subject</span>
               </Link>
             </li>
             <li>
               <Link to={"/admin/allocation"} onClick={() => setShow(false)}>
-              <i class='bx bxs-layer-plus'></i>
+              <i className='bx bxs-layer-plus'></i>
                 <span className="links_name">Subject Allocation</span>
               </Link>
             </li>
             <li>
               <Link to={"/admin/teachers"} onClick={() => setShow(false)}>
-              <i class='bx bxs-user-detail bx-flip-horizontal' ></i>
+              <i className='bx bxs-user-detail bx-flip-horizontal' ></i>
                 <span className="links_name">Teachers</span>
               </Link>
             </li>
