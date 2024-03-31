@@ -279,11 +279,7 @@ nav .hamburger {
   min-height: 90vh;
   background-color: rgb(196 194 233 / 29%);
 }
-.coursePage {
-  display: flex;
-  justify-content: space-between;
-}
-.subjectAllocation{
+.coursePage,.allsubject,.teacherdetials,.subjectAllocation{
   display: flex;
   justify-content: space-between;
 }
