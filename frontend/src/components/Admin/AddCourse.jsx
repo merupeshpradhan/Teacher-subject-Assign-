@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./course.css";
+import "./Admin.css";
 import toast from "react-hot-toast";
 import axios from "axios";
 
@@ -28,7 +28,7 @@ function AddCourse({ onCourseAdded }) {
 
   return (
     <>
-      <div className="addcourse">
+      <div className="addData">
         <form onSubmit={handleSubmit}>
           <h2>Add a new course</h2>
           <div className="form-group fullname">

@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import CourseDetials from "./CourseDetials";
 import AddCourse from "./AddCourse";

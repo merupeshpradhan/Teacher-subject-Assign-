@@ -17,7 +17,7 @@ export const createTeacher = catchAsyncError(async (req, res, next) => {
   }
 
   const teacher = await Teacher.create({ name, mobile, email, gender, dateOfBirth, subjects, teachingExperience,teachingHours });
-  res.status(201).json({ success: true, message: 'Teacher created successfully', data: teacher });
+  res.status(201).json({ success: true, message: 'Teacher Added successfully', data: teacher });
 });
 
 // Get all teachers

@@ -21,7 +21,7 @@ export const createSubject = catchAsyncError(async (req, res, next) => {
     subjectShortName,
     subjectCode,
   });
-  res.status(201).json({ success: true, data: subject });
+  res.status(201).json({ success: true,message:"Subject Added" ,data: subject });
 });
 
 // Get all subjects

@@ -1,65 +1,81 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./course.css";
+import "./Admin.css";
 import toast from "react-hot-toast";
 import { MdOutlineSaveAs } from "react-icons/md";
 import { GiCancel } from "react-icons/gi";
 import { MdEdit, MdDelete } from "react-icons/md";
-function Subjectdetails({ subjects, fetchSubjects })
- {
-    const [editSubjectId, setEditSubjectId] = useState(null);
-    const [editedSubjectName, setEditedSubjectName] = useState("");
-    const [editedCourse, setEditeCourse] = useState("");
-    const [editedShortName, setEditedShortName] = useState("");
-    const [editedCode, setEditeCode] = useState("");
 
+function Subjectdetails({ subjects, fetchSubjects }) {
+  const [editSubjectId, setEditSubjectId] = useState(null);
+  const [editedSubjectName, setEditedSubjectName] = useState("");
+  const [editedCourse, setEditedCourse] = useState("");
+  const [editedShortName, setEditedShortName] = useState("");
+  const [editedCode, setEditedCode] = useState("");
 
-  
-    const handleEdit = (id, name, course,shortName,subjectCode) => {
-      setEditSubjectId(id);
-      setEditedSubjectName(name);
-      setEditeCourse(course);
-      setEditedShortName(shortName);
-      setEditeCode(subjectCode);
+  const [courses, setCourses] = useState([]);
 
-    };
-  
-    const handleSave = async (id) => {
-      try {
-        const response =await axios.put(
-          `http://localhost:4000/api/v1/subject/${id}`,
-          { name: editedSubjectName,course : editedCourse,subjectShortName:editedShortName,subjectCode:editedCode },
-          { withCredentials: true }
-        );
-        toast.success(response.data.message);
-        fetchSubjects();
-        setEditSubjectId(null);
-      } catch (error) {
-        toast.error(error.response.data.message);
-      }
-    };
-  
-    const handleCancelEdit = () => {
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
+  const fetchCourses = async () => {
+    try {
+      const response = await axios.get("http://localhost:4000/api/v1/course");
+      setCourses(response.data.data);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    }
+  };
+
+  const handleEdit = (id, name, course, shortName, subjectCode) => {
+    setEditSubjectId(id);
+    setEditedSubjectName(name);
+    setEditedCourse(course);
+    setEditedShortName(shortName);
+    setEditedCode(subjectCode);
+  };
+
+  const handleSave = async (id) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:4000/api/v1/subject/${id}`,
+        {
+          name: editedSubjectName,
+          courseName: editedCourse,
+          subjectShortName: editedShortName,
+          subjectCode: editedCode,
+        },
+        { withCredentials: true }
+      );
+      toast.success(response.data.message);
+      fetchSubjects();
       setEditSubjectId(null);
-    };
-  
-    const handleDelete = async (id) => {
-      try {
-        await axios.delete(`http://localhost:4000/api/v1/subject/${id}`, {
-          withCredentials: true,
-        });
-        fetchSubjects();
-        toast.success("Subject deleted successfully");
-      } catch (error) {
-        console.error("Error deleting Subject:", error);
-        toast.error(error.response.data.message);
-      }
-    };
-  
-  
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setEditSubjectId(null);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:4000/api/v1/subject/${id}`, {
+        withCredentials: true,
+      });
+      fetchSubjects();
+      toast.success("Subject deleted successfully");
+    } catch (error) {
+      console.error("Error deleting Subject:", error);
+      toast.error(error.response.data.message);
+    }
+  };
+
   return (
-<>
-      <div className="coursedetails">
+    <>
+      <div className="details ">
         <h4>All Subjects</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
@@ -80,7 +96,15 @@ function Subjectdetails({ subjects, fetchSubjects })
                   <td>
                     {editSubjectId === subject._id ? (
                       <input
-                        style={{ padding: "3px" }}
+                        style={{
+                          border: "1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                          width: "150px",
+                          fontWeight: "500",
+                        }}
                         type="text"
                         value={editedSubjectName}
                         onChange={(e) => setEditedSubjectName(e.target.value)}
@@ -91,12 +115,27 @@ function Subjectdetails({ subjects, fetchSubjects })
                   </td>
                   <td>
                     {editSubjectId === subject._id ? (
-                      <input
-                        style={{ padding: "3px" }}
-                        type="text"
+                      <select
+                        style={{
+                          border: "1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                          width: "150px",
+                          fontWeight: "500",
+                        }}
+                        id="course"
                         value={editedCourse}
-                        onChange={(e) => setEditeCourse(e.target.value)}
-                      />
+                        onChange={(e) => setEditedCourse(e.target.value)}
+                      >
+                        <option value="">Select Course</option>
+                        {courses.map((course) => (
+                          <option key={course.name} value={course.name}>
+                            {course.name}
+                          </option>
+                        ))}
+                      </select>
                     ) : (
                       subject.courseName
                     )}
@@ -104,9 +143,17 @@ function Subjectdetails({ subjects, fetchSubjects })
                   <td>
                     {editSubjectId === subject._id ? (
                       <input
-                        style={{ padding: "3px" }}
+                        style={{
+                          border: "1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                          width: "150px",
+                          fontWeight: "500",
+                        }}
                         type="text"
-                        value={setEditedShortName}
+                        value={editedShortName}
                         onChange={(e) => setEditedShortName(e.target.value)}
                       />
                     ) : (
@@ -116,16 +163,24 @@ function Subjectdetails({ subjects, fetchSubjects })
                   <td>
                     {editSubjectId === subject._id ? (
                       <input
-                        style={{ padding: "3px" }}
+                        style={{
+                          border: "1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                          width: "150px",
+                          fontWeight: "500",
+                        }}
                         type="text"
                         value={editedCode}
-                        onChange={(e) => setEditeCode(e.target.value)}
+                        onChange={(e) => setEditedCode(e.target.value)}
                       />
                     ) : (
                       subject.subjectCode
                     )}
                   </td>
-                  <td>
+                  <td style={{ display: "flex" }}>
                     {editSubjectId === subject._id ? (
                       <>
                         <MdOutlineSaveAs
@@ -158,7 +213,13 @@ function Subjectdetails({ subjects, fetchSubjects })
                             cursor: "pointer",
                           }}
                           onClick={() =>
-                            handleEdit(subject._id, subject.name, subject.course,subject.subjectShortName,subject.subjectCode)
+                            handleEdit(
+                              subject._id,
+                              subject.name,
+                              subject.courseName,
+                              subject.subjectShortName,
+                              subject.subjectCode
+                            )
                           }
                         />
                         <MdDelete
@@ -179,7 +240,8 @@ function Subjectdetails({ subjects, fetchSubjects })
           </table>
         </div>
       </div>
-    </>  )
+    </>
+  );
 }
 
-export default Subjectdetails
+export default Subjectdetails;

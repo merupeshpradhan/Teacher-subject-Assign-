@@ -279,7 +279,7 @@ nav .hamburger {
   min-height: 90vh;
   background-color: rgb(196 194 233 / 29%);
 }
-.coursePage,.allsubject,.teacherdetials,.subjectAllocation{
+.coursePage,.allsubject,.subjectAllocation{
   display: flex;
   justify-content: space-between;
 }
@@ -295,13 +295,13 @@ nav .hamburger {
 /* ==============================Responsive============================ */
 
 @media only screen and (max-width: 600px) {
-  .coursePage,.subjectAllocation {
+  .coursePage,.subjectAllocation,.allsubject {
     display: flex;
     flex-direction: column;
   }
 }
 @media only screen and (max-width: 768px),(max-width:940px) {
-  .coursePage ,.subjectAllocation{
+  .coursePage ,.subjectAllocation,.allsubject{
     display: flex;
     flex-direction: column;
   }
