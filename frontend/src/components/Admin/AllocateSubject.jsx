@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./course.css";
+import "./Admin.css";
 import toast from "react-hot-toast";
 
 function AllocateSubject({ onCourseAdded }) {
@@ -54,7 +54,7 @@ function AllocateSubject({ onCourseAdded }) {
 
   return (
     <>
-      <div className="addcourse">
+      <div className="addData">
         <form onSubmit={handleSubmit}>
           <h2>Allocate Subject To Teacher</h2>
           <div className="form-group fullname">

@@ -1,235 +1,6 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-// import "./course.css";
-// import toast from "react-hot-toast";
-// import { MdOutlineSaveAs } from "react-icons/md";
-// import { GiCancel } from "react-icons/gi";
-// import { MdEdit, MdDelete } from "react-icons/md";
-
-// function AllocateDetials({ teacherAllocated, fetchAllocatedTeacher }) {
-//   const [editedAllocatedId, setEditedAllocatedId] = useState(null);
-//   const [editedSubject, setEditedSubject] = useState("");
-//   const [editedCourse, setEditedCourse] = useState("");
-//   const [editedTeacher, setEditedTeacher] = useState("");
-
-//   const [subjects, setSubjects] = useState([]);
-//   const [courses, setCourses] = useState([]);
-//   const [teachers, setTeachers] = useState([]);
-
-//   const handleEdit = (id, subject, course, teacher) => {
-//     setEditedAllocatedId(id);
-//     setEditedSubject(subject);
-//     setEditedCourse(course);
-//     setEditedTeacher(teacher);
-//   };
-
-//   useEffect(() => {
-//     fetchSubjects();
-//     fetchCourse();
-//     fetchTeacher();
-//   }, []);
-
-//   const fetchSubjects = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:4000/api/v1/subject");
-//       setSubjects(response.data.data);
-//     } catch (error) {
-//       console.error("Error fetching subjects:", error);
-//     }
-//   };
-
-//   const fetchTeacher = async () => {
-//     try {
-//       const response = await axios.get(
-//         "http://localhost:4000/api/v1/teacher/allteacher"
-//       );
-//       setTeachers(response.data.data);
-//     } catch (error) {
-//       console.error("Error fetching Teacher:", error);
-//     }
-//   };
-
-//   const fetchCourse = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:4000/api/v1/course");
-//       setCourses(response.data.data);
-//     } catch (error) {
-//       console.error("Error fetching Course:", error);
-//     }
-//   };
-
-//   const getSubjectNameById = (subjectId) => {
-//     const subject = subjects.find((subject) => subject._id === subjectId);
-//     return subject ? subject.name : "Subject is deleted";
-//   };
-//   const getCourseNameById = (courseId) => {
-//     const course = courses.find((course) => course._id === courseId);
-//     return course ? course.name : "Course is Deleted";
-//   };
-//   const getTeacherNameById = (teacherId) => {
-//     const teacher = teachers.find((teacher) => teacher._id === teacherId);
-//     return teacher ? teacher.name : "Teacher data Deleted";
-//   };
-
-//   const handleSave = async (id) => {
-//     try {
-//       const response = await axios.put(
-//         `http://localhost:4000/api/v1/allocation/update/${id}`,
-//         {
-//           subject: editedSubject,
-//           course: editedCourse,
-//           teacher: editedTeacher,
-//         },
-//         { withCredentials: true }
-//       );
-//       toast.success(response.data.message);
-//       fetchAllocatedTeacher();
-//       setEditedAllocatedId(null);
-//     } catch (error) {
-//       toast.error(error.response.data.message);
-//     }
-//   };
-
-//   const handleCancelEdit = () => {
-//     setEditedAllocatedId(null);
-//   };
-
-//   const handleDelete = async (id) => {
-//     try {
-//       await axios.delete(`http://localhost:4000/api/v1/allocation/delete/${id}`, {
-//         withCredentials: true,
-//       });
-//       fetchAllocatedTeacher();
-//       toast.success("Course deleted successfully");
-//     } catch (error) {
-//       console.error("Error deleting course:", error);
-//       toast.error(error.response.data.message);
-//     }
-//   };
-
-//   return (
-//     <>
-//       <div className="coursedetails">
-//         <h4>Allocated Subjects And Teacher</h4>
-//         <div className="w3-container">
-//           <table className="w3-table w3-striped w3-border">
-//             <thead>
-//               <tr className="w3-teal">
-//                 <th>Sl. No</th>
-//                 <th>Subject Name</th>
-//                 <th>Course Name</th>
-//                 <th>Teacher</th>
-//                 <th>Action</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {teacherAllocated.map((allocated, index) => (
-//                 <tr key={allocated._id}>
-//                   <td>{index + 1}</td>
-//                   <td>
-//                     {editedAllocatedId === allocated._id ? (
-//                       <input
-//                         style={{ padding: "0px" ,width:"150px"}}
-//                         type="text"
-//                         value={editedSubject}
-//                         onChange={(e) => setEditedSubject(e.target.value)}
-//                       />
-//                     ) : (
-//                       getSubjectNameById(allocated.subject)
-//                     )}
-//                   </td>
-//                   <td>
-//                     {editedAllocatedId === allocated._id ? (
-//                       <input
-//                         style={{ padding: "0px" ,width:"150px"}}
-//                         type="text"
-//                         value={editedCourse}
-//                         onChange={(e) => setEditedCourse(e.target.value)}
-//                       />
-//                     ) : (
-//                       getCourseNameById(allocated.course)
-//                     )}
-//                   </td>
-//                   <td>
-//                     {editedAllocatedId === allocated._id ? (
-//                       <input
-//                         style={{ padding: "0px",width:"150px" }}
-//                         type="text"
-//                         value={editedTeacher}
-//                         onChange={(e) => setEditedTeacher(e.target.value)}
-//                       />
-//                     ) : (
-//                       getTeacherNameById(allocated.teacher)
-//                     )}
-//                   </td>
-//                   <td>
-//                     {editedAllocatedId === allocated._id ? (
-//                       <>
-//                         <MdOutlineSaveAs
-//                           style={{
-//                             color: "green",
-//                             fontSize: "20px",
-//                             margin: " 0 3px",
-//                             cursor: "pointer",
-//                           }}
-//                           onClick={() => handleSave(allocated._id)}
-//                         />
-
-//                         <GiCancel
-//                           style={{
-//                             color: "red",
-//                             fontSize: "20px",
-//                             margin: " 0 3px",
-//                             cursor: "pointer",
-//                           }}
-//                           onClick={handleCancelEdit}
-//                         />
-//                       </>
-//                     ) : (
-//                       <>
-//                         <MdEdit
-//                           style={{
-//                             fontSize: "20px",
-//                             margin: " 0 3px",
-//                             color: "#0080009c",
-//                             cursor: "pointer",
-//                           }}
-//                           onClick={() =>
-//                             handleEdit(
-//                               allocated._id,
-//                               allocated.subject,
-//                               allocated.course,
-//                               allocated.teacher
-//                             )
-//                           }
-//                         />
-//                         <MdDelete
-//                           style={{
-//                             fontSize: "20px",
-//                             margin: " 0 3px",
-//                             color: "#f94242",
-//                             cursor: "pointer",
-//                           }}
-//                           onClick={() => handleDelete(allocated._id)}
-//                         />
-//                       </>
-//                     )}
-//                   </td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// export default AllocateDetials;
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./course.css";
+import "./Admin.css";
 import toast from "react-hot-toast";
 import { MdOutlineSaveAs } from "react-icons/md";
 import { GiCancel } from "react-icons/gi";
@@ -240,7 +11,7 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
   const [editedSubject, setEditedSubject] = useState("");
   const [editedCourse, setEditedCourse] = useState("");
   const [editedTeacher, setEditedTeacher] = useState("");
-  const [selectedTeacher, setSelectedTeacher] = useState([]); // State to store selected teacher IDs
+  const [selectedTeacher, setSelectedTeacher] = useState([]);
 
   const [subjects, setSubjects] = useState([]);
   const [courses, setCourses] = useState([]);
@@ -254,8 +25,12 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
 
     // Define teaching experience and teaching hours
     const selectedTeacherData = teachers.find((t) => t._id === teacher);
-    const teachingExperience = selectedTeacherData ? selectedTeacherData.teachingExperience : 0;
-    const teachingHours = selectedTeacherData ? selectedTeacherData.teachingHours : 0;
+    const teachingExperience = selectedTeacherData
+      ? selectedTeacherData.teachingExperience
+      : 0;
+    const teachingHours = selectedTeacherData
+      ? selectedTeacherData.teachingHours
+      : 0;
 
     // Check if subject, teaching experience, and teaching hours match any teacher
     const matchingTeachers = teachers.filter(
@@ -263,11 +38,11 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
         t.subjects.includes(subject) &&
         t.teachingExperience >= teachingExperience &&
         t.teachingHours >= teachingHours &&
-        t.name !== "Teacher data Deleted" // Filter out deleted teacher data
+        t.name !== "Teacher data Deleted"
     );
 
-    // Populate dropdown with IDs of matching teachers
-    setSelectedTeacher(matchingTeachers.map((t) => t._id)); // Use teacher's ID here
+    // dropdown with IDs of matching teachers
+    setSelectedTeacher(matchingTeachers.map((t) => t._id));
   };
 
   useEffect(() => {
@@ -304,7 +79,7 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
       console.error("Error fetching Course:", error);
     }
   };
-  
+
   const getSubjectNameById = (subjectId) => {
     const subject = subjects.find((subject) => subject._id === subjectId);
     return subject ? subject.name : "Subject is deleted";
@@ -332,7 +107,7 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
       const response = await axios.put(
         `http://localhost:4000/api/v1/allocation/update/${id}`,
         {
-          teacher: editedTeacher // Pass the selected teacher's ID
+          teacher: editedTeacher, 
         },
         { withCredentials: true }
       );
@@ -352,9 +127,12 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/allocation/delete/${id}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `http://localhost:4000/api/v1/allocation/delete/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
       fetchAllocatedTeacher();
       toast.success("Course deleted successfully");
     } catch (error) {
@@ -365,7 +143,7 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
 
   return (
     <>
-      <div className="coursedetails">
+      <div className="details ">
         <h4>Allocated Subjects And Teacher</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
@@ -386,12 +164,19 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
                   <td>{getCourseNameById(allocated.course)}</td>
                   <td>
                     {editedAllocatedId === allocated._id ? (
-                      // Render dropdown if editing
                       <select
-                      style={{borderColor:"#bacaf3",outlineColor:"#5682f5",color:"#673ab7",fontWeight:"500"}}
+                        style={{
+                          border: "1px solid",
+                          width: "150px",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          fontWeight: "500",
+                        }}
                         value={editedTeacher}
                         onChange={(e) => setEditedTeacher(e.target.value)}
                       >
+                        <option value="">Select Teacher</option>
                         {selectedTeacher.map((teacherId) => (
                           <option key={teacherId} value={teacherId}>
                             {getTeacherNameById(teacherId)}

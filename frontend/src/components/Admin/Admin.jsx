@@ -13,7 +13,7 @@ function Admin() {
   return (
     <>
       <section className="adminPage page">
-        <AdminDashboard/>
+        <AdminDashboard />
       </section>
     </>
   );

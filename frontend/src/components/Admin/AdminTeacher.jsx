@@ -28,7 +28,7 @@ const AdminTeacher = () => {
   return (
     <>
     <section className='teacherdetials'>
-      <AddTeacher onCourseAdded={handleCourseAdded}/>
+      <AddTeacher onTeacherAdded={handleCourseAdded}/>
       <TeacherDetials teachers={teachers} fetchTeachers={fetchTeachers}/>
       
     </section>

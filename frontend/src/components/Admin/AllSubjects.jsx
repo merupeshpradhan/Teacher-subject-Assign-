@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import axios from "axios";
-import "./course.css";
+import "./Admin.css";
 
 
 function AllSubjects() {

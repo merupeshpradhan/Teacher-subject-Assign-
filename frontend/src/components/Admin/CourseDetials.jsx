@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./course.css";
+import "./Admin.css";
 import toast from "react-hot-toast";
 import { MdOutlineSaveAs } from "react-icons/md";
 import { GiCancel } from "react-icons/gi";
@@ -19,7 +19,7 @@ function CourseDetails({ courses, fetchCourses }) {
 
   const handleSave = async (id) => {
     try {
-      const response =await axios.put(
+      const response = await axios.put(
         `http://localhost:4000/api/v1/course/update/${id}`,
         { name: editedName, branch: editedBranch },
         { withCredentials: true }
@@ -51,7 +51,7 @@ function CourseDetails({ courses, fetchCourses }) {
 
   return (
     <>
-      <div className="coursedetails">
+      <div className="details ">
         <h4>All Courses</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
@@ -70,7 +70,13 @@ function CourseDetails({ courses, fetchCourses }) {
                   <td>
                     {editCourseId === course._id ? (
                       <input
-                        style={{ padding: "3px" }}
+                        style={{
+                          border:"1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                        }}
                         type="text"
                         value={editedName}
                         onChange={(e) => setEditedName(e.target.value)}
@@ -82,7 +88,13 @@ function CourseDetails({ courses, fetchCourses }) {
                   <td>
                     {editCourseId === course._id ? (
                       <input
-                        style={{ padding: "3px" }}
+                        style={{
+                          border:"1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                        }}
                         type="text"
                         value={editedBranch}
                         onChange={(e) => setEditedBranch(e.target.value)}

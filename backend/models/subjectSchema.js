@@ -9,7 +9,7 @@ const subjectSchema = new mongoose.Schema({
   courseName: {
     type: String,
     required: [true, "please Provide course Detials"],
-    enum: ["MCA", "MSC"],
+    // enum: ["MCA", "MSC"],
   },
   subjectShortName: {
     type: String,
