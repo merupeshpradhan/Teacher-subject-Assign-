@@ -91,6 +91,12 @@ function Sidebar() {
                 <span className="links_name">Classes</span>
               </Link>
             </li>
+            <li>
+              <Link to={"/teacher/Detials"} onClick={() => setShow(false)}>
+                <i className="bx bx-user"></i>
+                <span className="links_name">Teacher Details</span>
+              </Link>
+            </li>
           </>
         ) : (
           <></>

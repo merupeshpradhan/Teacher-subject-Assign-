@@ -18,4 +18,5 @@ router.put("/update/:id", isAuthorized, updateTeacher); // Update a teacher by I
 router.delete("/delete/:id", isAuthorized, deleteTeacher); // Delete a teacher by ID
 router.get("/teacherdata/:name", getTeacherByName); // Get a single teacher by name
 
+
 export default router;
