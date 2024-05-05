@@ -284,6 +284,16 @@ nav .hamburger {
   justify-content: space-between;
 }
 
+
+/* ---------------------- Teacher --------------------- */
+
+.teacherData {
+  margin: 60px 0px 0px 79px;
+  padding: 20px;
+  min-height: 90vh;
+  background-color: rgb(196 194 233 / 29%);
+}
+
 /* ===============================Toaster Modified===================== */
 .go1579819456 {
   overflow: hidden;
