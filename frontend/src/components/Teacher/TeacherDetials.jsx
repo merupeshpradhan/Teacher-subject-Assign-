@@ -74,6 +74,7 @@ function TeacherDetails({ teachers, fetchTeachers }) {
           email: editedEmail,
           gender: editedGender,
           dateOfBirth: editedDateOfBirth,
+          subjects: editedSubjects,
           teachingExperience: editedTeachingExperience,
           teachingHours: editedTeachingHours,
         },
@@ -94,14 +95,11 @@ function TeacherDetails({ teachers, fetchTeachers }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(
-        `http://localhost:4000/api/v1/teacher/delete/${id}`,
-        {
-          withCredentials: true,
-        }
-      );
-      fetchTeachers();
+      await axios.delete(`http://localhost:4000/api/v1/teacher/delete/${id}`, {
+        withCredentials: true,
+      });
       toast.success("One teacher deleted successfully");
+      fetchTeachers();
     } catch (error) {
       console.error("Error deleting one teacher:", error);
       toast.error(error.response.data.message);
@@ -111,7 +109,17 @@ function TeacherDetails({ teachers, fetchTeachers }) {
   return (
     <>
       <div className="details ">
-        <h4 style={{background:"white",fontWeight:"700",letterSpacing:"3px",color:"#03A9F4",padding:"5px 0px 5px 20px"}}>All Teachers</h4>
+        <h4
+          style={{
+            background: "white",
+            fontWeight: "700",
+            letterSpacing: "3px",
+            color: "#03A9F4",
+            padding: "5px 0px 5px 20px",
+          }}
+        >
+          All Teachers
+        </h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
             <thead>
@@ -122,13 +130,14 @@ function TeacherDetails({ teachers, fetchTeachers }) {
                 <th>Email</th>
                 <th>Gender</th>
                 <th>DateOfBirth</th>
+                <th>Subject</th>
                 <th>TeachingExperience</th>
                 <th>TeachingHours</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {Array.isArray(teachers) && teachers.map((teacher, index) => (
+              {teachers.map((teacher, index) => (
                 <tr key={teacher._id}>
                   <td>{index + 1}</td>
                   <td>
@@ -225,15 +234,32 @@ function TeacherDetails({ teachers, fetchTeachers }) {
                         }}
                         type="date"
                         value={editedDateOfBirth}
-                        onChange={(e) =>
-                          setEditedDateOfBirth(e.target.value)
-                        }
+                        onChange={(e) => setEditedDateOfBirth(e.target.value)}
                       />
                     ) : (
                       formatDate(teacher.dateOfBirth)
                     )}
                   </td>
-                  
+                  <td>
+                    {editTeacherId === teacher._id ? (
+                      <input
+                        style={{
+                          border: "1px solid",
+                          borderColor: "#bacaf3",
+                          outlineColor: "#5682f5",
+                          color: "#673ab7",
+                          padding: "3px",
+                          width: "150px",
+                          fontWeight: "500",
+                        }}
+                        type="text"
+                        value={getSubjectNameById(editedSubjects[0])}
+                        onChange={(e) => setEditedSubjects([e.target.value])}
+                      />
+                    ) : (
+                      getSubjectNameById(teacher.subjects[0])
+                    )}
+                  </td>
                   <td style={{ textAlign: "center" }}>
                     {editTeacherId === teacher._id ? (
                       <input
@@ -253,7 +279,7 @@ function TeacherDetails({ teachers, fetchTeachers }) {
                         }
                       />
                     ) : (
-                      teacher.teachingExperience
+                      teacher.teachingExperience // Corrected property name
                     )}
                   </td>
                   <td style={{ textAlign: "center" }}>
@@ -270,9 +296,7 @@ function TeacherDetails({ teachers, fetchTeachers }) {
                         }}
                         type="text"
                         value={editedTeachingHours}
-                        onChange={(e) =>
-                          setEditedTeachingHours(e.target.value)
-                        }
+                        onChange={(e) => setEditedTeachingHours(e.target.value)}
                       />
                     ) : (
                       teacher.teachingHours

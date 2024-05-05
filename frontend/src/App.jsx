@@ -19,11 +19,11 @@ import AdminSubjects from "./components/Admin/AdminSubjects";
 import AdminCourses from "./components/Admin/AdminCourses";
 import AdminTeacher from "./components/Admin/AdminTeacher";
 import AdminSubjectAllocation from "./components/Admin/AdminSubjectAllocation";
-import TeacherDashboard from "./components/Teacher/TeacherDashboard";
 import TeacherClasses from "./components/Teacher/TeacherClasses";
 import NotFound from "./components/NotFound/NotFound";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+import TeacherData from "./components/Teacher/TeacherData";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -62,7 +62,7 @@ const App = () => {
             path="/admin/allocation"
             element={<AdminSubjectAllocation />}
           />
-          <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+          <Route path="/teacher/dashboard" element={<TeacherData/>} />
           <Route path="/teacher/classes" element={<TeacherClasses />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

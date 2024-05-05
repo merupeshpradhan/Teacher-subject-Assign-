@@ -1,9 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import AddSubject from "./AddSubject";
+import TeacherDetials from "./TeacherDetials";
+import PreferenceSubject from "./PreferenceSubject";
 import { Context } from "../../main";
-import ClassesDetials from "./ClassesDetials";
 
-const TeacherClasses = () => {
+function TeacherData() {
   const [teachers, setTeachers] = useState([]);
   const { user } = useContext(Context);
 
@@ -25,7 +27,7 @@ const TeacherClasses = () => {
 
       if (teacherData) {
         // If teacherData is not null or undefined
-        setTeachers(teacherData); // Set the teachers state as an array containing the teacher object
+        setTeachers([teacherData]); // Set the teachers state as an array containing the teacher object
       } else {
         setTeachers([]); // Set an empty array if teacherData is not available
       }
@@ -37,14 +39,30 @@ const TeacherClasses = () => {
   const handleCourseAdded = () => {
     fetchTeachers(); // Fetch teachers again after adding a new course
   };
-  // console.log(teachers._id);
   return (
     <>
-      <section className="teacherData" style={{ margin: "0px 0px 0px 79px" }}>
-        <ClassesDetials teachers={teachers} fetchTeachers={fetchTeachers}/>
+      <section
+        className="teacherData"
+        style={{ margin: "50px 0px 0px 79px", minHeight: "50vh" }}
+      >
+        <AddSubject onTeacherAdded={handleCourseAdded} />
+      </section>
+      <h4
+        style={{
+          background: "white",
+          fontWeight: "700",
+          letterSpacing: "3px",
+          color: "#03A9F4",
+          padding: "5px 0px 5px 100px",
+        }}
+      >
+        Subject Preference
+      </h4>
+      <section className="teacherData" style={{ margin: "0px 0px 0px 79px"}}>
+        <PreferenceSubject teachers={teachers} fetchTeachers={fetchTeachers} />
       </section>
     </>
   );
-};
+}
 
-export default TeacherClasses;
+export default TeacherData;
