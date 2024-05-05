@@ -80,6 +80,12 @@ function Sidebar() {
               <span className="tooltip">Search</span>
             </li>
             <li>
+              <Link to={"/"} onClick={() => setShow(false)}>
+                <i className="bx bx-clipboard"></i>
+                <span className="links_name">Dashboard</span>
+              </Link>
+            </li>
+            <li>
               <Link to={"/teacher/dashboard"} onClick={() => setShow(false)}>
                 <i className="bx bx-user"></i>
                 <span className="links_name">Dashboard</span>

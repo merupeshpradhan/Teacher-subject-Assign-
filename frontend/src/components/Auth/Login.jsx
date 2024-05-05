@@ -44,7 +44,7 @@ const Login= () => {
 
   return (
     <>
-      <section className="authPage">
+      <section className="authPage" style={{ background:"linear-gradient(162deg, rgba(49,123,172,1) 9%, rgba(212,153,197,1) 63%)"}}>
         <div className="container">
           <div className="header">
             <h3>Login to your account</h3>
@@ -93,7 +93,12 @@ const Login= () => {
           </form>
         </div>
         <div className="banner">
-          <img src="/login.jpg" alt="login" />
+          {/* <img src="/LoginImg1.png" alt="login" /> */}
+          <img src="/Slider-6.jpg" alt="a lovely kiss in the night"/>
+          <img src="/Slider-7.jpg" alt="a women inside a car"/>
+          <img src="/Slider-8.png" alt="a baby"/>
+          <img src="/Slider-9.png" alt="a girl in the forest"/>
+          <img src="/Slider-10.jpg" alt="a girl"/>
         </div>
       </section>
     </>
