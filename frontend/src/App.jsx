@@ -62,7 +62,7 @@ const App = () => {
             path="/admin/allocation"
             element={<AdminSubjectAllocation />}
           />
-          <Route path="/teacher/dashboard" element={<TeacherData/>} />
+          <Route path="/teacher/dashboard" element={<TeacherData />} />
           <Route path="/teacher/classes" element={<TeacherClasses />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
