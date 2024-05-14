@@ -74,7 +74,6 @@ function TeacherDetails({ teachers, fetchTeachers }) {
           email: editedEmail,
           gender: editedGender,
           dateOfBirth: editedDateOfBirth,
-          subjects: editedSubjects,
           teachingExperience: editedTeachingExperience,
           teachingHours: editedTeachingHours,
         },
@@ -123,14 +122,13 @@ function TeacherDetails({ teachers, fetchTeachers }) {
                 <th>Email</th>
                 <th>Gender</th>
                 <th>DateOfBirth</th>
-                <th>Subject</th>
                 <th>TeachingExperience</th>
                 <th>TeachingHours</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {teachers.map((teacher, index) => (
+              {Array.isArray(teachers) && teachers.map((teacher, index) => (
                 <tr key={teacher._id}>
                   <td>{index + 1}</td>
                   <td>
@@ -235,28 +233,7 @@ function TeacherDetails({ teachers, fetchTeachers }) {
                       formatDate(teacher.dateOfBirth)
                     )}
                   </td>
-                  <td>
-                    {editTeacherId === teacher._id ? (
-                      <input
-                        style={{
-                          border: "1px solid",
-                          borderColor: "#bacaf3",
-                          outlineColor: "#5682f5",
-                          color: "#673ab7",
-                          padding: "3px",
-                          width: "150px",
-                          fontWeight: "500",
-                        }}
-                        type="text"
-                        value={getSubjectNameById(editedSubjects[0])}
-                        onChange={(e) =>
-                          setEditedSubjects([e.target.value])
-                        }
-                      />
-                    ) : (
-                      getSubjectNameById(teacher.subjects[0])
-                    )}
-                  </td>
+                  
                   <td style={{ textAlign: "center" }}>
                     {editTeacherId === teacher._id ? (
                       <input

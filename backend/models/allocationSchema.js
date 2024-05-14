@@ -19,6 +19,19 @@ const allocationSchema = new mongoose.Schema({
     ref: 'Teacher',
     required: [true, 'Teacher is required'],
   },
+  scores: [
+    {
+      teacher: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Teacher',
+        required: true,
+      },
+      score: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
 
 const Allocation = mongoose.model('Allocation', allocationSchema);

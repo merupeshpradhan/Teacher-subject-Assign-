@@ -8,42 +8,12 @@ import { MdEdit, MdDelete } from "react-icons/md";
 
 function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
   const [editedAllocatedId, setEditedAllocatedId] = useState(null);
-  const [editedSubject, setEditedSubject] = useState("");
-  const [editedCourse, setEditedCourse] = useState("");
   const [editedTeacher, setEditedTeacher] = useState("");
   const [selectedTeacher, setSelectedTeacher] = useState([]);
 
   const [subjects, setSubjects] = useState([]);
   const [courses, setCourses] = useState([]);
   const [teachers, setTeachers] = useState([]);
-
-  const handleEdit = (id, subject, course, teacher) => {
-    setEditedAllocatedId(id);
-    setEditedSubject(subject);
-    setEditedCourse(course);
-    setEditedTeacher(teacher);
-
-    // Define teaching experience and teaching hours
-    const selectedTeacherData = teachers.find((t) => t._id === teacher);
-    const teachingExperience = selectedTeacherData
-      ? selectedTeacherData.teachingExperience
-      : 0;
-    const teachingHours = selectedTeacherData
-      ? selectedTeacherData.teachingHours
-      : 0;
-
-    // Check if subject, teaching experience, and teaching hours match any teacher
-    const matchingTeachers = teachers.filter(
-      (t) =>
-        t.subjects.includes(subject) &&
-        t.teachingExperience >= teachingExperience &&
-        t.teachingHours >= teachingHours &&
-        t.name !== "Teacher data Deleted"
-    );
-
-    // dropdown with IDs of matching teachers
-    setSelectedTeacher(matchingTeachers.map((t) => t._id));
-  };
 
   useEffect(() => {
     fetchSubjects();
@@ -80,14 +50,34 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
     }
   };
 
+  const handleEdit = (id,teacher) => {
+    setEditedAllocatedId(id);
+    setEditedTeacher(teacher);
+
+    // Find the allocated subject by id
+    const allocatedSubject = teacherAllocated.find(
+      (allocation) => allocation._id === id
+    );
+
+    // Get the teacher names for the allocated subject
+    const teacherNames = allocatedSubject.scores.map((score) =>
+      (score.teacher)
+    );
+
+    // Set the selected teacher names for the dropdown
+    setSelectedTeacher(teacherNames);
+  };
+
   const getSubjectNameById = (subjectId) => {
     const subject = subjects.find((subject) => subject._id === subjectId);
     return subject ? subject.name : "Subject is deleted";
   };
+
   const getCourseNameById = (courseId) => {
     const course = courses.find((course) => course._id === courseId);
     return course ? course.name : "Course is Deleted";
   };
+
   const getTeacherNameById = (teacherId) => {
     const teacher = teachers.find((teacher) => teacher._id === teacherId);
     return teacher ? teacher.name : "Teacher data Deleted";
@@ -107,7 +97,7 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
       const response = await axios.put(
         `http://localhost:4000/api/v1/allocation/update/${id}`,
         {
-          teacher: editedTeacher, 
+          teacher: editedTeacher,
         },
         { withCredentials: true }
       );
@@ -115,29 +105,11 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
       toast.success(response.data.message);
       // Reset the state values to clear the edited fields
       setEditedAllocatedId(null);
-      setEditedSubject("");
-      setEditedCourse("");
       setEditedTeacher("");
       setSelectedTeacher([]);
     } catch (error) {
       console.error("Error updating allocation:", error);
       toast.error("Failed to update allocation");
-    }
-  };
-
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(
-        `http://localhost:4000/api/v1/allocation/delete/${id}`,
-        {
-          withCredentials: true,
-        }
-      );
-      fetchAllocatedTeacher();
-      toast.success("Course deleted successfully");
-    } catch (error) {
-      console.error("Error deleting course:", error);
-      toast.error(error.response.data.message);
     }
   };
 
@@ -173,13 +145,13 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
                           color: "#673ab7",
                           fontWeight: "500",
                         }}
-                        value={editedTeacher}
+                        value={editedTeacher} // Display the selected teachers
                         onChange={(e) => setEditedTeacher(e.target.value)}
                       >
                         <option value="">Select Teacher</option>
-                        {selectedTeacher.map((teacherId) => (
-                          <option key={teacherId} value={teacherId}>
-                            {getTeacherNameById(teacherId)}
+                        {selectedTeacher.map((teacherName) => (
+                          <option key={teacherName} value={teacherName}>
+                            {getTeacherNameById(teacherName)}
                           </option>
                         ))}
                       </select>
@@ -222,8 +194,6 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
                           onClick={() =>
                             handleEdit(
                               allocated._id,
-                              allocated.subject,
-                              allocated.course,
                               allocated.teacher
                             )
                           }

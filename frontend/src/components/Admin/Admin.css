@@ -74,6 +74,7 @@ tr:nth-child(2n) {
   width: 40%;
   height: fit-content;
   padding: 20px;
+  background: linear-gradient(162deg, rgba(0,3,13,1) 11%, rgba(80,86,105,1) 58%);
 }
 
 form {
@@ -109,14 +110,14 @@ form select {
   width: 100%;
   font-size: 15px;
   outline: none;
-  background: #fff;
-  border-radius: 3px;
+  background: #d87c7c;
+  border-radius: 16px;
   border: 1px solid #bfbfbf;
 }
 
 form input:focus,
 form select:focus {
-  border-color: #9a9a9a;
+  border-color: #8a5a5a;
 }
 
 form input.error,

@@ -49,7 +49,13 @@ const Register = () => {
 
   return (
     <>
-      <section className="authPage">
+      <section
+        className="authPage"
+        style={{
+          background:
+            "linear-gradient(162deg, rgba(49,123,172,1) 9%, rgba(212,153,197,1) 63%)",
+        }}
+      >
         <div className="container">
           <div className="header">
             <h3>Create a new account</h3>
@@ -124,7 +130,11 @@ const Register = () => {
           </form>
         </div>
         <div className="banner">
-          <img src="/register.png" alt="register" />
+          <img src="/Slider-1.png" alt="a lovely kiss in the night" />
+          <img src="/Slider-2.png" alt="a women inside a car" />
+          <img src="/Slider-3.jpg" alt="a baby" />
+          <img src="/Slider-4.jpg" alt="a girl in the forest" />
+          <img src="/Slider-5.jpg" alt="a girl" />
         </div>
       </section>
     </>
