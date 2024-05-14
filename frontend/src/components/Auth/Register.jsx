@@ -129,15 +129,13 @@ const Register = () => {
             </Link>
           </form>
         </div>
-          <div className="banner">
-            {/* <img src="/register.png" alt="register" />
-             */}
-            <img src="/Slider-1.png" alt="a lovely kiss in the night" />
-            <img src="/Slider-2.png" alt="a women inside a car" />
-            <img src="/Slider-3.jpg" alt="a baby" />
-            <img src="/Slider-4.jpg" alt="a girl in the forest" />
-            <img src="/Slider-5.jpg" alt="a girl" />
-          </div>
+        <div className="banner">
+          <img src="/Slider-1.png" alt="a lovely kiss in the night" />
+          <img src="/Slider-2.png" alt="a women inside a car" />
+          <img src="/Slider-3.jpg" alt="a baby" />
+          <img src="/Slider-4.jpg" alt="a girl in the forest" />
+          <img src="/Slider-5.jpg" alt="a girl" />
+        </div>
       </section>
     </>
   );

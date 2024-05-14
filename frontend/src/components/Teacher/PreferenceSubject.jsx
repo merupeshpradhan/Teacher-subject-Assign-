@@ -3,6 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { MdOutlineSaveAs, MdEdit, MdDelete } from "react-icons/md";
 import { GiCancel } from "react-icons/gi";
+import "./Admin.css";
 
 function PreferenceSubject({ teachers, fetchTeachers }) {
   const [editSubjectId, setEditSubjectId] = useState(null);
