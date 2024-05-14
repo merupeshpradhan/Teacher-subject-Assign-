@@ -2,11 +2,13 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
+import "./Admin.css";
 
 function AddSubject({ onTeacherAdded }) {
   const { user } = useContext(Context);
   const [subjectId, setSubjectId] = useState("");
-  const [subjectTeachingExperience, setSubjectTeachingExperience] = useState("");
+  const [subjectTeachingExperience, setSubjectTeachingExperience] =
+    useState("");
   const [preference, setPreference] = useState("");
   const [subjects, setSubjects] = useState([]);
 
@@ -27,13 +29,15 @@ function AddSubject({ onTeacherAdded }) {
     event.preventDefault();
 
     try {
-      const selectedSubject = subjects.find((subject) => subject._id === subjectId);
+      const selectedSubject = subjects.find(
+        (subject) => subject._id === subjectId
+      );
       if (!selectedSubject) {
         toast.error("Please select a valid subject");
         return;
       }
 
-    //   const { type, teaching_experience, preference } = selectedSubject;
+      //   const { type, teaching_experience, preference } = selectedSubject;
 
       const response = await axios.post(
         `http://localhost:4000/api/v1/teacher/${user.email}/addsubject`,
@@ -46,12 +50,10 @@ function AddSubject({ onTeacherAdded }) {
       );
       // Handle success feedback
       toast.success(response.data.message);
-      onTeacherAdded(); 
+      onTeacherAdded();
       setSubjectId("");
       setSubjectTeachingExperience("");
       setPreference("");
-
-      
     } catch (error) {
       // console.error("Error adding subject to teacher:", error);
       toast.error(error.response?.data?.message || "An error occurred");
@@ -66,7 +68,10 @@ function AddSubject({ onTeacherAdded }) {
       <form onSubmit={handleSubmit}>
         <h2 style={{ margin: "0 0 10px" }}>Teacher Evaluation</h2>
         <div className="form-group branch" style={{ marginBottom: "5px" }}>
-          <label htmlFor="Subject" style={{ fontSize: "15px", marginBottom: "0px" }}>
+          <label
+            htmlFor="Subject"
+            style={{ fontSize: "15px", marginBottom: "0px" }}
+          >
             Subjects
           </label>
           <select
@@ -83,7 +88,10 @@ function AddSubject({ onTeacherAdded }) {
           </select>
         </div>
         <div className="form-group branch" style={{ marginBottom: "5px" }}>
-          <label htmlFor="TeachingExperience" style={{ fontSize: "15px", marginBottom: "0px" }}>
+          <label
+            htmlFor="TeachingExperience"
+            style={{ fontSize: "15px", marginBottom: "0px" }}
+          >
             Teaching Experience
           </label>
           <input
@@ -94,8 +102,14 @@ function AddSubject({ onTeacherAdded }) {
             onChange={(e) => setSubjectTeachingExperience(e.target.value)}
           />
         </div>
-        <div className="form-group branch" style={{ marginBottom: "5px" , marginTop:"7px" }}>
-          <label htmlFor="Preference" style={{ fontSize: "15px", marginBottom: "2px" }}>
+        <div
+          className="form-group branch"
+          style={{ marginBottom: "5px", marginTop: "7px" }}
+        >
+          <label
+            htmlFor="Preference"
+            style={{ fontSize: "15px", marginBottom: "2px" }}
+          >
             Preference
           </label>
           <div style={{ display: "flex" }}>
@@ -156,7 +170,11 @@ function AddSubject({ onTeacherAdded }) {
           </div>
         </div>
         <div className="form-group submit-btn" style={{ marginTop: "20px" }}>
-          <input type="submit" style={{ padding: "10px" }} value="Add Subject" />
+          <input
+            type="submit"
+            style={{ padding: "10px" }}
+            value="Add Subject"
+          />
         </div>
       </form>
     </div>
