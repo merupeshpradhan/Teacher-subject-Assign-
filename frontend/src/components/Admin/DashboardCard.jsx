@@ -54,8 +54,8 @@ function DashboardCard() {
   return (
     <>
       <div className="card-container">
-        <div className="cards">
-          <div className="card">
+        <div className="cards" style={{background:"greenyellow"}}>
+          <div className="card" >
             <div className="header">
               <h4>Total Teacher</h4>
             </div>
@@ -82,7 +82,7 @@ function DashboardCard() {
             </div>
           </div>
         </div>
-        <div className="cards">
+        <div className="cards" style={{background:"#45EECC"}}>
           <div className="card">
             <div className="header">
               <h4>Total Course</h4>
@@ -110,7 +110,7 @@ function DashboardCard() {
             </div>
           </div>
         </div>
-        <div className="cards">
+        <div className="cards" style={{background:"#F23BEF"}}>
           <div className="card">
             <div className="header">
               <h4>Total Subjects</h4>

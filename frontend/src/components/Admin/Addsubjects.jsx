@@ -55,9 +55,9 @@ function Addsubjects({ onCourseAdded }) {
   return (
     <>
       <div className="addData">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{padding:"20px"}}>
           <h2>Add a new Subject</h2>
-          <div className="form-group fullname">
+          <div className="form-group subject">
             <label htmlFor="subject">Subject Name</label>
             <input
               type="text"

@@ -3,17 +3,22 @@ import { useContext } from "react";
 import { Context } from "../../main";
 import { Navigate } from "react-router-dom";
 
-import Dashboard from "./Dashboard";
+import AdminDashboard from "./AdminDashboard";
+import TeacherDashboard from "./TeacherDashboard";
 
 function Home() {
-  const { isAuthorized } = useContext(Context);
+  const { isAuthorized, setIsAuthorized, user } = useContext(Context);
   if (!isAuthorized) {
     return <Navigate to={"/login"} />;
   }
   return (
     <>
       <section className="homePage page">
-        <Dashboard/>
+        {user && user.role === "admin" ? (
+          <AdminDashboard />
+        ) : (
+          <TeacherDashboard />
+        )}
       </section>
     </>
   );

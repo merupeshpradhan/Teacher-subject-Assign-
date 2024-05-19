@@ -10,11 +10,10 @@ import {
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
 import Navbar from "./components/Layout/Navbar";
-import Sidebar from "./components/Layout/Sidebar";
 import Footer from "./components/Layout/Footer";
 import Home from "./components/Home/Home";
-import Admin from "./components/Admin/Admin";
-import AdminDashboard from "./components/Admin/AdminDashboard";
+// import Admin from "./components/Admin/Admin";
+// import AdminDashboard from "./components/Admin/AdminDashboard";
 import AdminSubjects from "./components/Admin/AdminSubjects";
 import AdminCourses from "./components/Admin/AdminCourses";
 import AdminTeacher from "./components/Admin/AdminTeacher";
@@ -48,13 +47,12 @@ const App = () => {
     <>
       <Router>
         <Navbar />
-        <Sidebar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/" element={<Admin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Admin />} /> */}
+          {/* <Route path="/admin/dashboard" element={<AdminDashboard />} /> */}
           <Route path="/admin/courses" element={<AdminCourses />} />
           <Route path="/admin/subjects" element={<AdminSubjects />} />
           <Route path="/admin/teachers" element={<AdminTeacher />} />
@@ -66,7 +64,7 @@ const App = () => {
           <Route path="/teacher/classes" element={<TeacherClasses />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
         <Toaster />
       </Router>
     </>

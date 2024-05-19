@@ -1,29 +1,31 @@
 /* Dashboard card */
-.adminPage{
-  background-color: #bfcbbe;
-}
 .card-container {
-    padding: 20px;
-    gap: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  padding: 20px;
+  gap: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .card-container .cards {
-  width: 300px;
-  height: 120px;
-  background: #101d18;
+  width: 25vw;
+  /* height: 20vh; */
+  background: #046641;
   color: white;
   border-radius: 3px;
-  padding: 0 15px 0px 0px;
   box-shadow: 1px 2px 9px 0px rgba(0, 0, 0, 0.75);
 }
-.card-container .card .header {
+.card-container .cards .header {
   display: flex;
-  justify-content: flex-end;
-  margin: 15px 0px 0px 0px;
-  font-size: 13px;
+  justify-content: center;
+}
+.card-container .cards .header h4 {
+  font-weight: 600;
+  font-size: 20px;
   letter-spacing: 2px;
+}
+.card-container .cards .card {
+  display: flex;
+  justify-content: space-between;
 }
 .card-container .cards .card .middle {
   display: flex;
@@ -31,12 +33,40 @@
   align-items: center;
   padding: 5px 0px 20px 15px;
 }
-.card-container .cards .card .middle .detials p a {
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.card-container .cards .card .icon {
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
 }
-.card-container .cards .card .middle .detials p a:hover {
-    color: rgba(255, 255, 255, 0.505);
+.card-container .cards .card .icon svg{
+  transition: all 0.9s;
+  font-size: 50px;
+}
+.card-container .cards:hover svg {
+  transform: scale(1.5);
+}
+.card-container .cards .card .middle .details p{
+  background: none;
+}
+.card-container .cards p{
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+  background: #00000055;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.card-container .cards p:hover{
+  letter-spacing: 2px;
+}
+.card-container .cards p a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+.card-container .cards p a:hover {
+  color: rgba(255, 255, 255, 0.505);
 }

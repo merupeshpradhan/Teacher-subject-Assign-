@@ -50,91 +50,135 @@ const Register = () => {
   return (
     <>
       <section
-        className="authPage"
         style={{
           background:
-            "linear-gradient(162deg, rgba(49,123,172,1) 9%, rgba(212,153,197,1) 63%)",
+            "radial-gradient(circle, rgba(192,228,234,1) 7%, rgba(230,77,246,1) 90%)",
+          height: "100vh",
+          padding: "0px 20px 20px 20px",
         }}
       >
-        <div className="container">
-          <div className="header">
-            <h3>Create a new account</h3>
-          </div>
-          <form>
-            <div className="inputTag">
-              <label>Register As</label>
-              <div>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="">Select Role</option>
-                  <option value="admin">Admin</option>
-                  <option value="teacher">Teacher</option>
-                </select>
-                <FaRegUser />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label>Name</label>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Zeeshan"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-                <FaPencilAlt />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label>Email Address</label>
-              <div>
-                <input
-                  type="email"
-                  placeholder="zk@gmail.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <MdOutlineMailOutline />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label>Phone Number</label>
-              <div>
-                <input
-                  type="number"
-                  placeholder="12345678"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-                <FaPhoneFlip />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label>Password</label>
-              <div>
-                <input
-                  type="password"
-                  placeholder="Your Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="current-password"
-                />
-                <RiLock2Fill />
-              </div>
-            </div>
-            <button type="submit" onClick={handleRegister}>
-              Register
-            </button>
-            <Link style={{ color: "black" }} to={"/login"}>
-              Login Now
-            </Link>
-          </form>
+        <div className="header">
+          <h3 style={{ margin: "0px", padding: "0px" }}>
+            Create a new account
+          </h3>
         </div>
-        <div className="banner">
-          <img src="/Slider-1.png" alt="a lovely kiss in the night" />
-          <img src="/Slider-2.png" alt="a women inside a car" />
-          <img src="/Slider-3.jpg" alt="a baby" />
-          <img src="/Slider-4.jpg" alt="a girl in the forest" />
-          <img src="/Slider-5.jpg" alt="a girl" />
+        <div
+          style={{
+            boxShadow:
+              "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+            borderRadius: "10px",
+            // height: "85vh",
+            overflow: "hidden",
+            marginTop: "13px",
+          }}
+        >
+          <div className="authPage">
+            <div className="container" style={{padding:"20px"}}>
+              <form>
+                <div className="inputTag">
+                  <label>Register As</label>
+                  <div>
+                    <select
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
+                      value={role}
+                      onChange={(e) => setRole(e.target.value)}
+                    >
+                      <option value="">Select Role</option>
+                      <option value="admin">Admin</option>
+                      <option value="teacher">Teacher</option>
+                    </select>
+                    <FaRegUser />
+                  </div>
+                </div>
+                <div className="inputTag">
+                  <label>Name</label>
+                  <div>
+                    <input
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
+                      type="text"
+                      placeholder="Zeeshan"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                    <FaPencilAlt />
+                  </div>
+                </div>
+                <div className="inputTag">
+                  <label>Email Address</label>
+                  <div>
+                    <input
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
+                      type="email"
+                      placeholder="zk@gmail.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <MdOutlineMailOutline />
+                  </div>
+                </div>
+                <div className="inputTag">
+                  <label>Phone Number</label>
+                  <div>
+                    <input
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
+                      type="number"
+                      placeholder="12345678"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                    <FaPhoneFlip />
+                  </div>
+                </div>
+                <div className="inputTag">
+                  <label>Password</label>
+                  <div>
+                    <input
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
+                      type="password"
+                      placeholder="Your Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      autoComplete="current-password"
+                    />
+                    <RiLock2Fill />
+                  </div>
+                </div>
+                <div style={{display:"flex" ,alignItems:"center",justifyContent:"center"}}>
+                  <button type="submit" onClick={handleRegister}>
+                    Register
+                  </button>
+                </div>
+                <Link style={{marginTop:"0px"}} to={"/login"}>Login Now</Link>
+              </form>
+            </div>
+            <div className="banner">
+              <img src="/Slider-1.png" alt="a lovely kiss in the night" />
+              <img src="/Slider-2.png" alt="a women inside a car" />
+              <img src="/Slider-3.jpg" alt="a baby" />
+              <img src="/Slider-4.jpg" alt="a girl in the forest" />
+              <img src="/Slider-5.jpg" alt="a girl" />
+            </div>
+          </div>
         </div>
       </section>
     </>

@@ -26,6 +26,17 @@ const AdminSubjects = () => {
   return (
     <>
       <section className="allsubject">
+      <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
+          <h4
+            style={{
+              color: "black",
+              fontWeight: "600",
+              borderBottom: "3px solid #ff68de",
+            }}
+          >
+            Subjects
+          </h4>
+        </div>
         <Addsubjects onCourseAdded={handleCourseAdded}/>
         <Subjectdetails subjects={subjects} fetchSubjects={fetchSubjects}/>
       </section>

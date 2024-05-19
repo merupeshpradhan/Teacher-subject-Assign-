@@ -80,8 +80,7 @@ function AddTeacher({ onTeacherAdded }) {
             <div className="form-group">
               <label htmlFor="mobile">Mobile No</label>
               <input
-                type 
-                ="text"
+                type="text"
                 id="mobile"
                 name="mobile"
                 value={formData.mobile}
@@ -139,8 +138,9 @@ function AddTeacher({ onTeacherAdded }) {
         <div className="form-group gender">
           <label>Gender</label>
           <div className="gender-options">
-            <label>
+            <label style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
               <input
+                style={{ width: "25px" }}
                 type="radio"
                 name="gender"
                 value="Male"
@@ -149,8 +149,9 @@ function AddTeacher({ onTeacherAdded }) {
               />
               Male
             </label>
-            <label>
+            <label style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
               <input
+                style={{ width: "25px" }}
                 type="radio"
                 name="gender"
                 value="Female"
@@ -172,14 +173,13 @@ function AddTeacher({ onTeacherAdded }) {
           display: flex;
           justify-content: center;
           height: fit-content;
-          margin: 0% 30%;
-
         }
 
         form {
           background: #dcd3ea;
           max-width: 600px;
           width: 100%;
+          padding:20px;
           border-radius: 7px;
           box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
         }

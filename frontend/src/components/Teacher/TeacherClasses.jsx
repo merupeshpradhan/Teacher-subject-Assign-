@@ -40,7 +40,18 @@ const TeacherClasses = () => {
   // console.log(teachers._id);
   return (
     <>
-      <section className="teacherData" style={{ margin: "0px 0px 0px 79px" }}>
+      <section className="teacherData" style={{ margin: "50px 0px 0px 0px" }}>
+      <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
+          <h4
+            style={{
+              color: "black",
+              fontWeight: "600",
+              borderBottom: "3px solid #ff68de",
+            }}
+          >
+            Classes Time
+          </h4>
+        </div>
         <ClassesDetials teachers={teachers} fetchTeachers={fetchTeachers}/>
       </section>
     </>
