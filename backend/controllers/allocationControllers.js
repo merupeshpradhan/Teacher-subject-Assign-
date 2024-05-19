@@ -16,7 +16,7 @@ export const allocateTeacher = async (req, res, next) => {
     });
   }
 
-  const { subjectId, courseId } = req.body;
+  const { subjectId, courseId,semester } = req.body;
 
   try {
     // Find all teachers who can teach the subject and are not allocated to any subject
@@ -69,6 +69,7 @@ export const allocateTeacher = async (req, res, next) => {
         course: courseId,
         teacher: selectedTeacher.teacher._id, // Access teacher id from selectedTeacher
         scores: scores,
+        semester:semester,
       });
 
       // Save the allocation to the database
@@ -91,24 +92,6 @@ export const allocateTeacher = async (req, res, next) => {
   }
 };
 
-
-// Function to calculate preference points
-// const calculatePreferencePoints = (preference) => {
-//   switch (preference) {
-//     case 1:
-//       return 10;
-//     case 2:
-//       return 5;
-//     case 3:
-//       return 3;
-//     case 4:
-//       return 2;
-//     case 5:
-//       return 1;
-//     default:
-//       return 0;
-//   }
-// };
 
 // Update an existing allocation
 export const updateAllocation = async (req, res, next) => {

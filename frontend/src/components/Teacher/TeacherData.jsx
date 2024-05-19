@@ -41,24 +41,19 @@ function TeacherData() {
   };
   return (
     <>
-      <section
-        className="teacherData"
-        style={{ margin: "50px 0px 0px 79px", minHeight: "50vh" }}
-      >
+      <section className="teacherData">
+        <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
+          <h4
+            style={{
+              color: "black",
+              fontWeight: "600",
+              borderBottom: "3px solid #ff68de",
+            }}
+          >
+            Subject Preference
+          </h4>
+        </div>
         <AddSubject onTeacherAdded={handleCourseAdded} />
-      </section>
-      <h4
-        style={{
-          background: "white",
-          fontWeight: "700",
-          letterSpacing: "3px",
-          color: "#03A9F4",
-          padding: "5px 0px 5px 100px",
-        }}
-      >
-        Subject Preference
-      </h4>
-      <section className="teacherData" style={{ margin: "0px 0px 0px 79px"}}>
         <PreferenceSubject teachers={teachers} fetchTeachers={fetchTeachers} />
       </section>
     </>

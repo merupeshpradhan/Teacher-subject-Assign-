@@ -115,7 +115,7 @@ function TeacherDetails({ teachers, fetchTeachers }) {
             fontWeight: "700",
             letterSpacing: "3px",
             color: "#03A9F4",
-            padding: "5px 0px 5px 20px",
+            padding: "5px 0px 5px 0px",
           }}
         >
           All Teachers

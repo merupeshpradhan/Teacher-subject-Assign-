@@ -13,72 +13,146 @@
 nav {
   width: 100%;
   /* background:  rgb(42 157 143); */
-  background: #dcd3ea;
-  padding: 0 20px;
+  background: #ff68de;
+  padding: 10px 40px 10px 20px;
   position: fixed;
-}
-nav .container {
-  height: 60px;
-  overflow: hidden;
-  max-width: 1500px;
-  min-width: 1500px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end;
+  z-index: 20;
+  display:flex ;
+  justify-content: space-between;
   align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
+nav .logo{
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+  color: white;
+  gap: 10;
+  justify-content: space-between;
+  width: 220px;
+}
+
 nav .container button {
   height: fit-content;
-  padding: 5px 10px;
+  padding: 5px 15px;
   color: #12366c;
   border: none;
   background: transparent;
   font-size: 15px;
   font-weight: 500;
-  margin-right: 20px;
   border-radius: 10px;
-  border: 1px solid #e919dc;
+  color: white;
+  transition: all 0.3s;
+  border: 2px solid #ffffff;
 }
 nav .container button:hover {
-  color: #f3f7f8;
-  background: #d966d1;
+  color:black;
+  /* background: #f483ec; */
+  border-color: #dcd3ea;
   /* border: rgb(255, 0, 217); */
-  transition: all 0.3s;
+
   cursor: pointer;
   font-weight: 500;
 }
-nav .hamburger {
-  display: none;
+.sidebar{
+  padding: 50px 20px 0px 20px;
+  overflow: hidden;
+  background-color: aqua;
+  height: 100%;
+  position: fixed;
+  z-index: 8;
+  width: 250px;
+  background: #ff68de;
+  transition: all 0.3s ease;
+  /* translate: -250px; */
 }
-@media (max-width: 1520px) {
-  nav .container {
-    min-width: 100%;
-  }
+.sidebarClose{
+  transform: translateX(-100%);
 }
-@media (max-width: 1130px) {
-  /* .page {
-    padding-top: 120px;
-  } */
-  nav {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: 10;
-  }
-  nav .container {
-    align-items: center;
-  }
+.sidebarOpen{
+  transform: translateX(0);
 }
-@media (max-width: 490px) {
-  nav .menu {
-    width: 100%;
-  }
+
+.sidebar.open .logo-details #btn {
+  text-align: right;
 }
+.sidebar i {
+  color: #fff;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 30px;
+}
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar.open input {
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar.open .bx-search:hover {
+  background: #1d1b31;
+  color: #fff;
+}
+.sidebar .bx-search:hover {
+  background: #fff;
+  color: #11101d;
+}
+.sidebar li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.sidebar li a:hover {
+  background: #fff;
+}
+.sidebar li a .links_name {
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 1;
+  pointer-events: none;
+  transition: 0.4s;
+}
+.sidebar.open li a .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #11101d;
+}
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+
 .footerShow {
   overflow: hidden;
-  background: #11101d;
+  background: #f6abe5;
   display: flex;
+  z-index: 40;
   justify-content: space-between;
   padding: 25px 120px;
   align-items: center;
@@ -121,7 +195,7 @@ nav .hamburger {
   display: none;
 }
 .notfound {
-  min-height: 750px;
+  min-height: 100vh;
 }
 .notfound .content {
   display: flex;
@@ -149,17 +223,20 @@ nav .hamburger {
   display: grid;
   width: 220px;
   width: 40%;
+  border-radius: 10px;
   padding: 6%;
-  margin-right: 12%;
-  margin-top: 10%;
+  overflow: hidden;
+  
 }
 
 .banner > img {
   grid-area: 1/1;
   width: 100%;
-  aspect-ratio: 1;
+  /* aspect-ratio: 1; */
   object-fit: cover;
-  border: 10px solid #f2f2f2;
+  border: 6px solid #fb76de89;
+  /* box-shadow: rgba(248, 71, 242, 0.948) 0px -50px 36px -28px inset; */
+  border-radius: 20px;
   box-shadow: 0 0 4px #0007;
   z-index: 2;
   animation: slide var(--d) infinite, z-order var(--d) infinite steps(1);
@@ -226,117 +303,120 @@ nav .hamburger {
 
 .authPage {
   display: flex;
-  flex-direction: row;
+  width: 100%;
+  padding: 0px;
+  align-items: center;
   justify-content: space-between;
-  align-items: stretch;
-  margin: 0 auto;
-  min-height: 100vh;
-  padding: 0 80px;
 }
 .authPage .container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px 20px;
-  /* height: 100vh; */
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      width: 50%;
 }
-.authPage .container .header {
-  display: flex;
-  gap: 15px;
-  flex-direction: column;
-}
-.authPage .container .header h3 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-.authPage .container .header img {
-  width: 300px;
-  height: 120px;
-  margin: 0 auto;
-}
-.authPage .container .header {
-  text-align: center;
-  margin-bottom: 10px;
-  padding-right: 10%;
+
+.header h3{
+  -webkit-text-stroke: 1px white;
+  color:transparent;
+  font-size: 40px;
+  
 }
 .authPage .container form {
   display: flex;
+  gap: 10px;
   flex-direction: column;
-  gap: 5px;
+  padding: 20px 20px 20px 20px;
   background-color: transparent;
-  border: 3px solid black;
+  box-shadow: rgb(240, 153, 250) 3px 3px 6px 0px inset, rgba(230,77,246,1) -3px -3px 6px 1px inset;
+}
+
+.authPage .container form input:focus,
+.authPage .container form select:focus {
+  border: 1px solid #ffffff !important;
 }
 
 form label {
-  color: #d4d5e3;
+  color: #000000 !important;
+  font-weight: 700;
 }
-
+.inputTag div select{
+  color: rgb(192, 187, 187);
+}
 .inputTag div select option {
-  background-color: #b8bfff;
   color: #000000;
 }
 
+
 .inputTag input::placeholder {
-  color: #0d3262;
+  color: rgb(192, 187, 187);
 }
 
 .authPage .container form .inputTag {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
 }
 .authPage .container form .inputTag div {
   display: flex;
   align-items: center;
-  border-radius: 7px;
+  height: 40px;
+  margin-top: 0px;
 }
 .authPage .container form .inputTag div input,
 .authPage .container form .inputTag div select {
-  background: #3784bb78;
-  padding: 8px;
-  border: 1px solid;
+  padding: 10px;
+  border-top-left-radius: 20px;
   width: 100%;
   height: 100%;
 }
 .authPage .container form .inputTag div input:focus,
 .authPage .container form .inputTag div select:focus {
   outline: none;
-  border-color: #095b50;
-  box-shadow: 0 10px #0d554e;
+  box-shadow: 0 10px #e88bf0;
+  background: white;
 }
 .authPage .container form .inputTag div svg {
-  width: 10%;
+  width: 12%;
   font-size: 1.5rem;
-  background: #465965;
+  background: #DB57FF;
   height: 100%;
-  padding: 8px;
+  padding: 7px;
   color: #fff;
 }
 .authPage .container form button {
   padding: 12px;
+  width: 75%;
   cursor: pointer;
   text-align: center;
   border: none;
   margin-top: 25px;
   font-weight: 700;
-  color: #fff;
-  background: #2e9cff;
+  color: black;
+  background: white;
   font-size: 1.2rem;
-  border-radius: 7px;
+  border: 1px solid white;
+  border-top-left-radius:25px ;
+  border-bottom-right-radius:25px ;
+  transition: all 0.3s;
 }
 .authPage .container form a {
-  padding: 12px;
+  cursor: pointer;
   text-align: center;
-  border: 1px solid #000000;
+  border: none;
   margin-top: 25px;
   font-weight: 700;
-  cursor: pointer;
-  color: #ffffff;
-  background: #2e9cff;
+  color: white;
   font-size: 1.2rem;
   text-decoration: none;
-  border-radius: 7px;
+  transition: all 0.3s;
+}
+.authPage .container form button:hover{
+  background: transparent;
+  border-color: white;
+  color:white;
+}
+.authPage .container form a:hover{
+  color: black;
 }
 
 @media (max-width: 1520px) {
@@ -369,29 +449,33 @@ form label {
 /*---------------------- Admin--------------- */
 
 .adminPage,
+.homePage,
 .coursePage,
 .allsubject,
 .subjectAllocation,
 .teacherdetials {
-  margin: 60px 0px 0px 79px;
-  padding: 20px;
-  min-height: 90vh;
-  background-color: rgb(196 194 233 / 29%);
+  margin: 55px 0px 0px 0px;
+  padding: 0px 20px 20px 20px;
+  min-height: 92vh;
+  /* background-color: rgb(196 194 233 / 29%); */
+  background: #FDEFFD;
 }
 .coursePage,
 .allsubject,
 .subjectAllocation {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
 
 /* ---------------------- Teacher --------------------- */
 
-.teacherData {
-  margin: 60px 0px 0px 79px;
+.teacherData {  
+  margin: 55px 0px 0px 0px;
+  min-height: 50vh;
   padding: 20px;
   min-height: 90vh;
-  background-color: rgb(196 194 233 / 29%);
+  background: #FDEFFD;
 }
 
 /* ===============================Toaster Modified===================== */

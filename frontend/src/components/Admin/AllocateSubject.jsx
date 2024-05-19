@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 function AllocateSubject({ onCourseAdded }) {
   const [courseId, setCourseId] = useState("");
   const [subjectId, setSubjectId] = useState("");
+  const [semester, setsemester] = useState("");
   const [courses, setCourses] = useState([]);
   const [subjects, setSubjects] = useState([]);
 
@@ -37,7 +38,7 @@ function AllocateSubject({ onCourseAdded }) {
     try {
       const response = await axios.post(
         "http://localhost:4000/api/v1/allocation/allocate",
-        { courseId: courseId, subjectId: subjectId },
+        { courseId: courseId, subjectId: subjectId, semester: semester },
         { withCredentials: true }
       );
       console.log("Teacher Allocated to subject successfully:", response.data);
@@ -45,6 +46,7 @@ function AllocateSubject({ onCourseAdded }) {
       onCourseAdded();
       setCourseId("");
       setSubjectId("");
+      setsemester("");
       toast.success(response.data.message);
     } catch (error) {
       // console.log(error);
@@ -57,6 +59,19 @@ function AllocateSubject({ onCourseAdded }) {
       <div className="addData">
         <form onSubmit={handleSubmit}>
           <h2>Allocate Subject To Teacher</h2>
+
+          <div className="form-group branch">
+            <label htmlFor="branch">Semester</label>
+            <select
+              id="semester"
+              value={semester}
+              onChange={(e) => setsemester(e.target.value)}
+            >
+              <option value="">Select Semester</option>
+              <option value="1st Sem"> 1st semester</option>
+              <option value="2nd Sem"> 2nd semester</option>
+            </select>
+          </div>
           <div className="form-group fullname">
             <label htmlFor="course">Course Name</label>
             <select

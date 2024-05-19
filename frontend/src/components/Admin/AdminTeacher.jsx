@@ -28,6 +28,17 @@ const AdminTeacher = () => {
   return (
     <>
     <section className='teacherdetials'>
+    <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
+          <h4
+            style={{
+              color: "black",
+              fontWeight: "600",
+              borderBottom: "3px solid #ff68de",
+            }}
+          >
+            Teachers
+          </h4>
+        </div>
       <AddTeacher onTeacherAdded={handleCourseAdded}/>
       <TeacherDetials teachers={teachers} fetchTeachers={fetchTeachers}/>
       

@@ -26,6 +26,17 @@ function AdminCourses() {
   return (
     <>
       <section className="coursePage">
+        <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
+          <h4
+            style={{
+              color: "black",
+              fontWeight: "600",
+              borderBottom: "3px solid #ff68de",
+            }}
+          >
+            Courses
+          </h4>
+        </div>
         <AddCourse onCourseAdded={handleCourseAdded} />
         <CourseDetials courses={courses} fetchCourses={fetchCourses} />
       </section>

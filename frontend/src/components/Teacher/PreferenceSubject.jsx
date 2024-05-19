@@ -78,120 +78,135 @@ function PreferenceSubject({ teachers, fetchTeachers }) {
   };
 
   return (
-    <div className="details">
-      <div className="w3-container">
-        <table className="w3-table w3-striped w3-border">
-          <thead>
-            <tr className="w3-teal">
-              <th>Sl. No</th>
-              <th>Subject Name</th>
-              <th>Experience Of Teaching</th>
-              <th>Preference</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {teachers.map((teacher) =>
-              teacher.subjects.map((subject, index) => (
-                <tr key={`${subject._id}-${index}`}>
-                  <td>{index + 1}</td>
-                  <td>{getSubjectNameById(subject.subject)}</td>
-                  <td>
-                    {editSubjectId === subject._id ? (
-                      <input
-                        style={{
-                          border: "1px solid #bacaf3",
-                          padding: "3px",
-                          width: "150px",
-                          fontWeight: "500",
-                        }}
-                        type="text"
-                        value={editedSubjectTeachingExperience}
-                        onChange={(e) =>
-                          setEditedSubjectTeachingExperience(e.target.value)
-                        }
-                      />
-                    ) : (
-                      subject.subject_teaching_experience
-                    )}
-                  </td>
-                  {/* <td>{subject.subject_teaching_experience}</td> */}
-                  <td>
-                    {editSubjectId === subject._id ? (
-                      <input
-                        style={{
-                          border: "1px solid #bacaf3",
-                          padding: "3px",
-                          width: "150px",
-                          fontWeight: "500",
-                        }}
-                        type="text"
-                        value={editedPreference}
-                        onChange={(e) => setEditedPreference(e.target.value)}
-                      />
-                    ) : (
-                      subject.preference
-                    )}
-                  </td>
-                  {/* <td>{subject.preference}</td> */}
-                  <td>
-                    {editSubjectId === subject._id ? (
-                      <>
-                        <MdOutlineSaveAs
+    <>
+      <h4
+        style={{
+          fontWeight: "700",
+          letterSpacing: "3px",
+          color: "black",
+          padding: "0px 0px 0px 20px",
+          borderBottom: "3px solid #ff68de",
+        }}
+      >
+        All Subjects
+      </h4>
+      <div className="details">
+        <div className="w3-container">
+          <table className="w3-table w3-striped w3-border">
+            <thead>
+              <tr className="w3-teal">
+                <th>Sl. No</th>
+                <th>Subject Name</th>
+                <th>Experience Of Teaching</th>
+                <th>Preference</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {teachers.map((teacher) =>
+                teacher.subjects.map((subject, index) => (
+                  <tr key={`${subject._id}-${index}`}>
+                    <td>{index + 1}</td>
+                    <td>{getSubjectNameById(subject.subject)}</td>
+                    <td>
+                      {editSubjectId === subject._id ? (
+                        <input
                           style={{
-                            color: "green",
-                            fontSize: "20px",
-                            margin: " 0 3px",
-                            cursor: "pointer",
+                            border: "1px solid #bacaf3",
+                            padding: "3px",
+                            width: "150px",
+                            fontWeight: "500",
                           }}
-                          onClick={() => handleSave(teacher._id, subject._id)}
-                        />
-                        <GiCancel
-                          style={{
-                            color: "red",
-                            fontSize: "20px",
-                            margin: " 0 3px",
-                            cursor: "pointer",
-                          }}
-                          onClick={handleCancelEdit}
-                        />
-                      </>
-                    ) : (
-                      <>
-                        <MdEdit
-                          style={{
-                            color: "green",
-                            fontSize: "20px",
-                            margin: " 0 3px",
-                            cursor: "pointer",
-                          }}
-                          onClick={() =>
-                            handleEdit(
-                              subject._id,
-                              subject.subject_teaching_experience,
-                              subject.preference
-                            )
+                          type="text"
+                          value={editedSubjectTeachingExperience}
+                          onChange={(e) =>
+                            setEditedSubjectTeachingExperience(e.target.value)
                           }
                         />
-                        <MdDelete
+                      ) : (
+                        subject.subject_teaching_experience
+                      )}
+                    </td>
+                    {/* <td>{subject.subject_teaching_experience}</td> */}
+                    <td>
+                      {editSubjectId === subject._id ? (
+                        <input
                           style={{
-                            color: "red",
-                            fontSize: "20px",
-                            margin: " 0 3px",
-                            cursor: "pointer",
+                            border: "1px solid #bacaf3",
+                            padding: "3px",
+                            width: "150px",
+                            fontWeight: "500",
                           }}
-                          onClick={() => handleDelete(teacher._id, subject._id)}
+                          type="text"
+                          value={editedPreference}
+                          onChange={(e) => setEditedPreference(e.target.value)}
                         />
-                      </>
-                    )}
-                  </td>
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
+                      ) : (
+                        subject.preference
+                      )}
+                    </td>
+                    {/* <td>{subject.preference}</td> */}
+                    <td>
+                      {editSubjectId === subject._id ? (
+                        <>
+                          <MdOutlineSaveAs
+                            style={{
+                              color: "green",
+                              fontSize: "20px",
+                              margin: " 0 3px",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => handleSave(teacher._id, subject._id)}
+                          />
+                          <GiCancel
+                            style={{
+                              color: "red",
+                              fontSize: "20px",
+                              margin: " 0 3px",
+                              cursor: "pointer",
+                            }}
+                            onClick={handleCancelEdit}
+                          />
+                        </>
+                      ) : (
+                        <>
+                          <MdEdit
+                            style={{
+                              color: "green",
+                              fontSize: "20px",
+                              margin: " 0 3px",
+                              cursor: "pointer",
+                            }}
+                            onClick={() =>
+                              handleEdit(
+                                subject._id,
+                                subject.subject_teaching_experience,
+                                subject.preference
+                              )
+                            }
+                          />
+                          <MdDelete
+                            style={{
+                              color: "red",
+                              fontSize: "20px",
+                              margin: " 0 3px",
+                              cursor: "pointer",
+                            }}
+                            onClick={() =>
+                              handleDelete(teacher._id, subject._id)
+                            }
+                          />
+                        </>
+                      )}
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

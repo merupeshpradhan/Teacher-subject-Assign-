@@ -32,6 +32,9 @@ const allocationSchema = new mongoose.Schema({
       },
     },
   ],
+  semester:{
+    type:String,
+  }
 });
 
 const Allocation = mongoose.model('Allocation', allocationSchema);
