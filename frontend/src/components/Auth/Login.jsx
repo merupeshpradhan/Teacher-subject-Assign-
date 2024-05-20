@@ -47,7 +47,8 @@ const Login = () => {
         style={{
           background:
             "radial-gradient(circle, rgba(192,228,234,1) 7%, rgba(230,77,246,1) 90%)",
-          height: "100vh",padding:"0px 20px 20px 20px",
+          height: "100vh",
+          padding: "0px 20px 20px 20px",
         }}
       >
         <div className="header">
@@ -59,19 +60,28 @@ const Login = () => {
           style={{
             boxShadow:
               "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-            borderRadius: "10px",height:"85vh",overflow:"hidden",marginTop:"13px",display:"flex",justifyContent:"center"
+            borderRadius: "10px",
+            height: "85vh",
+            overflow: "hidden",
+            marginTop: "13px",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
           <div className="authPage">
             <div className="container">
-              <form> 
-                <div className="inputTag" style={{height:"80px"}} >
+              <form>
+                <div className="inputTag" style={{ height: "80px" }}>
                   <label>Login As</label>
-                  <div >
+                  <div>
                     <select
                       value={role}
                       onChange={(e) => setRole(e.target.value)}
-                      style={{borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",borderTopRightRadius:"0px"}}
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
                     >
                       <option value="">Select Role</option>
                       <option value="admin">Admin</option>
@@ -80,11 +90,15 @@ const Login = () => {
                     <FaRegUser />
                   </div>
                 </div>
-                <div className="inputTag" style={{height:"80px"}}>
+                <div className="inputTag" style={{ height: "80px" }}>
                   <label>Email Address</label>
                   <div>
                     <input
-                     style={{borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",borderTopRightRadius:"0px"}}
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
                       type="email"
                       placeholder="zk@gmail.com"
                       value={email}
@@ -93,7 +107,7 @@ const Login = () => {
                     <MdOutlineMailOutline />
                   </div>
                 </div>
-                <div className="inputTag" style={{height:"80px"}}>
+                <div className="inputTag" style={{ height: "80px" }}>
                   <label>Password</label>
                   <div>
                     <input
@@ -102,19 +116,27 @@ const Login = () => {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       autoComplete="current-password"
-                      style={{borderBottomLeftRadius:"0px",borderBottomRightRadius:"0px",borderTopRightRadius:"0px"}}
+                      style={{
+                        borderBottomLeftRadius: "0px",
+                        borderBottomRightRadius: "0px",
+                        borderTopRightRadius: "0px",
+                      }}
                     />
                     <RiLock2Fill />
                   </div>
                 </div>
-                <div style={{display:"flex" ,alignItems:"center",justifyContent:"center"}}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
                   <button type="submit" onClick={handleLogin}>
                     Login
                   </button>
                 </div>
-                <Link  to={"/register"}>
-                  Register Now
-                </Link>
+                <Link to={"/register"}>Register Now</Link>
               </form>
             </div>
             <div className="banner">

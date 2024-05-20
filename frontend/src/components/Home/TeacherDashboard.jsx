@@ -27,18 +27,21 @@ const TeacherDashboard = () => {
           subtitle="All Classes"
           IconComponent={PiUserCircleThin}
           path="/admin/teachers"
+          bgcolor="#e9bb3a"
         />
         <Card
           title="Subject Preference"
           subtitle="Add Subjects"
           IconComponent={PiUserCircleThin}
           path="/admin/teachers"
+          bgcolor="#ea1768"
         />
         <Card
           title="Teacher Profile"
           subtitle={user.email}
           IconComponent={PiUserCircleThin}
           path="/admin/teachers"
+          bgcolor="#2bc1bd"
         />
       </div>
     </>

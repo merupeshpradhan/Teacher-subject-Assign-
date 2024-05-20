@@ -3,7 +3,11 @@ import {Context} from "../../main"
 import { Link, useNavigate } from "react-router-dom";
 
 
-function Card({ title, subtitle,IconComponent, teacherCount, path }) {
+function Card({ title, subtitle,IconComponent, teacherCount, path,bgcolor }) {
+
+  const cardStyle = {
+    backgroundColor: bgcolor,
+  };
 
   
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
@@ -14,7 +18,7 @@ function Card({ title, subtitle,IconComponent, teacherCount, path }) {
   };
   return (
     <>
-      <div className="cards">
+      <div className="cards" style={cardStyle}>
         <div className="header">
           <h4>{title}</h4>
         </div>
