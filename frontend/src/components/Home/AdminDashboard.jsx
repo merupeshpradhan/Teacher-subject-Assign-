@@ -74,6 +74,7 @@ function Dashboard() {
           IconComponent={PiUserCircleThin}
           teacherCount={teacherCount}
           path="/admin/teachers"
+          bgcolor="#65b784"
         />
         <Card
           title="Courses"
@@ -81,6 +82,7 @@ function Dashboard() {
           IconComponent={IoDocumentOutline}
           teacherCount={courseCount}
           path="/admin/teachers"
+          bgcolor="#aa4b6b"
         />
         <Card
           title="Subjects"
@@ -88,6 +90,7 @@ function Dashboard() {
           IconComponent={IoBookSharp}
           teacherCount={subjectCount}
           path="/admin/teachers"
+          bgcolor="#c9a95f"
         />
         <Card
           title="Subject Allocation"
@@ -95,6 +98,7 @@ function Dashboard() {
           IconComponent={IoBookSharp}
           teacherCount={subjectCount}
           path="/admin/teachers"
+          bgcolor="#885fd5"
         />
         <Card
           title="Admin Profile"
@@ -102,6 +106,7 @@ function Dashboard() {
           IconComponent={IoBookSharp}
           teacherCount={subjectCount}
           path="/admin/teachers"
+          bgcolor="#fc5c7d"
         />
         <Card
           title="Teacher Detials"
@@ -109,6 +114,7 @@ function Dashboard() {
           IconComponent={IoBookSharp}
           teacherCount={subjectCount}
           path="/admin/teachers"
+          bgcolor="#3a8f7f"
         />
       </div>
     </>
