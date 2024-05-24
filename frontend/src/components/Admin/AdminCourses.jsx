@@ -32,6 +32,7 @@ function AdminCourses() {
               color: "black",
               fontWeight: "600",
               borderBottom: "3px solid #ff68de",
+              borderRadius:"5px"
             }}
           >
             Courses

@@ -15,7 +15,8 @@ const TeacherDashboard = () => {
           style={{
             color: "black",
             fontWeight:"600",
-            borderBottom:"3px solid #ff68de"
+            borderBottom:"3px solid #ff68de",
+            borderRadius:"5px"
           }}
         >
           Teacher Dashboard
@@ -26,21 +27,21 @@ const TeacherDashboard = () => {
           title="Clases"
           subtitle="All Classes"
           IconComponent={PiUserCircleThin}
-          path="/admin/teachers"
+          path="/teacher/classes"
           bgcolor="#e9bb3a"
         />
         <Card
           title="Subject Preference"
           subtitle="Add Subjects"
           IconComponent={PiUserCircleThin}
-          path="/admin/teachers"
+          path="/teacher/preference"
           bgcolor="#ea1768"
         />
         <Card
           title="Teacher Profile"
           subtitle={user.email}
           IconComponent={PiUserCircleThin}
-          path="/admin/teachers"
+          path="/teacher/profile"
           bgcolor="#2bc1bd"
         />
       </div>

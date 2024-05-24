@@ -62,6 +62,7 @@ function Dashboard() {
             color: "black",
             fontWeight: "600",
             borderBottom: "3px solid #ff68de",
+            borderRadius:"5px"
           }}
         >
           Admin Dashboard
@@ -69,8 +70,8 @@ function Dashboard() {
       </div>
       <div className="card-container">
         <Card
-          title="Teacher"
-          subtitle="Avilable Teachers"
+          title="Add New Teachers"
+          subtitle="Now Teachers"
           IconComponent={PiUserCircleThin}
           teacherCount={teacherCount}
           path="/admin/teachers"
@@ -81,7 +82,7 @@ function Dashboard() {
           subtitle="Avilable Courses"
           IconComponent={IoDocumentOutline}
           teacherCount={courseCount}
-          path="/admin/teachers"
+          path="/admin/courses"
           bgcolor="#aa4b6b"
         />
         <Card
@@ -89,30 +90,27 @@ function Dashboard() {
           subtitle="Avilable Subjects"
           IconComponent={IoBookSharp}
           teacherCount={subjectCount}
-          path="/admin/teachers"
+          path="/admin/subjects"
           bgcolor="#c9a95f"
         />
         <Card
           title="Subject Allocation"
-          subtitle="Avilable Subjects"
+          subtitle="Assign Teacher"
           IconComponent={IoBookSharp}
-          teacherCount={subjectCount}
-          path="/admin/teachers"
+          path="/admin/allocation"
           bgcolor="#885fd5"
         />
         <Card
           title="Admin Profile"
-          subtitle="Avilable Subjects"
+          subtitle="Admin Detials"
           IconComponent={IoBookSharp}
-          teacherCount={subjectCount}
-          path="/admin/teachers"
+          path="/admin/profile"
           bgcolor="#fc5c7d"
         />
         <Card
-          title="Teacher Detials"
-          subtitle="Avilable Subjects"
+          title="Teachers"
+          subtitle="Teacher All Detials"
           IconComponent={IoBookSharp}
-          teacherCount={subjectCount}
           path="/admin/teachers"
           bgcolor="#3a8f7f"
         />

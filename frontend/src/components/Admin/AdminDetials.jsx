@@ -4,8 +4,11 @@ import { ImUser } from "react-icons/im";
 import { Context } from "../../main";
 import "./Admin.css";
 import toast from "react-hot-toast";
+import { MdOutlineSaveAs } from "react-icons/md";
+import { GiCancel } from "react-icons/gi";
+import { MdEdit, MdDelete } from "react-icons/md";
 
-function TeacherDetials() {
+function AdminDetials() {
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
 
   console.log(user);
@@ -95,7 +98,7 @@ function TeacherDetials() {
               <span style={{ fontWeight: "600" }}>DOB :</span> 04/06/2001
             </p>
             <p>
-              <span style={{ fontWeight: "600" }}>Role : </span> {user.role}
+              <span style={{ fontWeight: "600" }}>Role : </span>{user.role}
             </p>
             <div>
               {editAdminID === user._id ? (
@@ -131,4 +134,4 @@ function TeacherDetials() {
   );
 }
 
-export default TeacherDetials
+export default AdminDetials;

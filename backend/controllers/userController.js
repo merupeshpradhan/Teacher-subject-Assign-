@@ -94,3 +94,34 @@ export const getUser = catchAsyncError((req, res, next) => {
     user,
   });
 });
+
+// Get a user by ID
+export const getUserById = catchAsyncError(async (req, res, next) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+
+  if (!user) {
+    return next(new ErrorHandler(`User not found with id ${id}`, 404));
+  }
+
+  res.status(200).json({ success: true, data: user });
+});
+
+// Update user 
+export const updateUser = catchAsyncError(async (req, res, next) => {
+  const { email, phone } = req.body;
+  const { id } = req.params;
+
+  let user = await User.findById(id);
+
+  if (!user) {
+    return next(new ErrorHandler(`User not found with id ${id}`, 404));
+  }
+
+  user.email = email || user.email;
+  user.phone = phone || user.phone;
+
+  await user.save();
+
+  res.status(200).json({ success: true, data: user, message: "Details updated successfully" });
+});

@@ -73,6 +73,7 @@ function ClassesDetials({ teachers, fetchTeachers }) {
               <tr className="w3-teal">
                 <th>Sl. No</th>
                 <th>Course Name</th>
+                <th>Semester</th>
                 {/* <th>Branch</th> */}
                 <th>Subject Name</th>
                 <th>Class Time</th>
@@ -83,65 +84,19 @@ function ClassesDetials({ teachers, fetchTeachers }) {
                 <tr key={allocated._id}>
                   <td>{index + 1}</td>
                   <td>
-                    {editTeacherId === allocated._id ? (
-                      <input
-                        style={{
-                          border: "1px solid",
-                          borderColor: "#bacaf3",
-                          outlineColor: "#5682f5",
-                          color: "#673ab7",
-                          padding: "3px",
-                          width: "180px",
-                          fontWeight: "500",
-                        }}
-                        type="text"
-                        value={editedName}
-                        onChange={(e) => setEditedName(e.target.value)}
-                      />
-                    ) : (
+                    {
                       getCourseNameById(allocated.course)
-                    )}
+                    }
                   </td>
                   <td>
-                    {editTeacherId === allocated._id ? (
-                      <input
-                        style={{
-                          border: "1px solid",
-                          borderColor: "#bacaf3",
-                          outlineColor: "#5682f5",
-                          color: "#673ab7",
-                          padding: "3px",
-                          width: "120px",
-                          fontWeight: "500",
-                        }}
-                        type="text"
-                        value={editedMobile}
-                        onChange={(e) => setEditedMobile(e.target.value)}
-                      />
-                    ) : (
+                    {allocated.semester}
+                  </td>
+                  <td>
+                    {
                       getSubjectNameById(allocated.subject)
-                    )}
+                    }
                   </td>
-                  <td>
-                    {editTeacherId === allocated._id ? (
-                      <input
-                        style={{
-                          border: "1px solid",
-                          borderColor: "#bacaf3",
-                          outlineColor: "#5682f5",
-                          color: "#673ab7",
-                          padding: "3px",
-                          width: "150px",
-                          fontWeight: "500",
-                        }}
-                        type="text"
-                        value={editedEmail}
-                        onChange={(e) => setEditedEmail(e.target.value)}
-                      />
-                    ) : (
-                      allocated.email
-                    )}
-                  </td>
+                  <td></td>
                 </tr>
               ))}
             </tbody>
