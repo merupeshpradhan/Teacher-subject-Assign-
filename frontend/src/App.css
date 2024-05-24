@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+@import url("https://fonts.googleapis.com/css?family=Inter:700|Inter:400");
 
 * {
   margin: 0;
@@ -12,19 +12,18 @@
 
 nav {
   width: 100%;
-  /* background:  rgb(42 157 143); */
-  background: #ff68de;
+  background: #f6f439;
   padding: 10px 40px 10px 20px;
   position: fixed;
   z-index: 20;
-  display:flex ;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
-nav .logo{
+nav .logo {
   display: flex;
   align-items: center;
   font-size: x-large;
@@ -37,41 +36,37 @@ nav .logo{
 nav .container button {
   height: fit-content;
   padding: 5px 15px;
-  color: #12366c;
   border: none;
-  background: transparent;
+  background: #ff9940fa;
   font-size: 15px;
   font-weight: 500;
   border-radius: 10px;
   color: white;
   transition: all 0.3s;
-  border: 2px solid #ffffff;
+  border: 2px solid #ff9940fa;
 }
 nav .container button:hover {
-  color:black;
-  /* background: #f483ec; */
-  border-color: #dcd3ea;
-  /* border: rgb(255, 0, 217); */
-
+  color: #ff9940fa;
+  border-color: #ff9940fa;
+  background: transparent;
   cursor: pointer;
   font-weight: 500;
 }
-.sidebar{
+.sidebar {
   padding: 50px 20px 0px 20px;
   overflow: hidden;
-  background-color: aqua;
   height: 100%;
   position: fixed;
   z-index: 8;
   width: 250px;
-  background: #ff68de;
+  background: #f6f439;
   transition: all 0.3s ease;
   /* translate: -250px; */
 }
-.sidebarClose{
+.sidebarClose {
   transform: translateX(-100%);
 }
-.sidebarOpen{
+.sidebarOpen {
   transform: translateX(0);
 }
 
@@ -79,7 +74,7 @@ nav .container button:hover {
   text-align: right;
 }
 .sidebar i {
-  color: #fff;
+  color: #ff7700;
   height: 60px;
   min-width: 50px;
   font-size: 28px;
@@ -119,13 +114,16 @@ nav .container button:hover {
   transition: all 0.4s ease;
 }
 .sidebar li a:hover {
-  background: #fff;
+  background: white;
+}
+.sidebar li a .links_name :hover {
+  color: white;
 }
 .sidebar li a .links_name {
   background: transparent;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 400;
+  color: #ff7700fa;
+  font-size: 17px;
+  font-weight: 600;
   white-space: nowrap;
   opacity: 1;
   pointer-events: none;
@@ -138,15 +136,14 @@ nav .container button:hover {
 .sidebar li a:hover .links_name,
 .sidebar li a:hover i {
   transition: all 0.5s ease;
-  color: #11101d;
+  color: #ff7a01;
 }
 .sidebar li i {
   height: 50px;
   line-height: 50px;
-  font-size: 20px;
+  font-size: 25px;
   border-radius: 12px;
 }
-
 
 .footerShow {
   overflow: hidden;
@@ -226,7 +223,6 @@ nav .container button:hover {
   border-radius: 10px;
   padding: 6%;
   overflow: hidden;
-  
 }
 
 .banner > img {
@@ -234,7 +230,7 @@ nav .container button:hover {
   width: 100%;
   /* aspect-ratio: 1; */
   object-fit: cover;
-  border: 6px solid #fb76de89;
+  border: 6px solid #f77b10fa;
   /* box-shadow: rgba(248, 71, 242, 0.948) 0px -50px 36px -28px inset; */
   border-radius: 20px;
   box-shadow: 0 0 4px #0007;
@@ -309,43 +305,45 @@ nav .container button:hover {
   justify-content: space-between;
 }
 .authPage .container {
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-      width: 50%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  width: 50%;
+}
+.header{
+  display: flex;
+  text-align: center;
+}
+.header h3 {
+  /* -webkit-text-stroke: 1px white; */
+  color: #ff0000c7;
+  font-weight: 600;
+  font-size: 20px;
 }
 
-.header h3{
-  -webkit-text-stroke: 1px white;
-  color:transparent;
-  font-size: 40px;
-  
-}
 .authPage .container form {
   display: flex;
   gap: 10px;
   flex-direction: column;
   padding: 20px 20px 20px 20px;
   background-color: transparent;
-  box-shadow: rgb(240, 153, 250) 3px 3px 6px 0px inset, rgba(230,77,246,1) -3px -3px 6px 1px inset;
 }
 
 .authPage .container form input:focus,
 .authPage .container form select:focus {
-  border: 1px solid #ffffff !important;
+  border: 1px solid #f77b10fa !important;
 }
 
 form label {
   color: #000000 !important;
   font-weight: 700;
 }
-.inputTag div select{
+.inputTag div select {
   color: rgb(192, 187, 187);
 }
 .inputTag div select option {
   color: #000000;
 }
-
 
 .inputTag input::placeholder {
   color: rgb(192, 187, 187);
@@ -368,6 +366,7 @@ form label {
   border-top-left-radius: 20px;
   width: 100%;
   height: 100%;
+  border: 1px solid white;
 }
 .authPage .container form .inputTag div input:focus,
 .authPage .container form .inputTag div select:focus {
@@ -378,7 +377,7 @@ form label {
 .authPage .container form .inputTag div svg {
   width: 12%;
   font-size: 1.5rem;
-  background: #DB57FF;
+  background: #f77b10fa;
   height: 100%;
   padding: 7px;
   color: #fff;
@@ -391,12 +390,12 @@ form label {
   border: none;
   margin-top: 25px;
   font-weight: 700;
-  color: black;
+  color: #f77b10fa;
   background: white;
   font-size: 1.2rem;
   border: 1px solid white;
-  border-top-left-radius:25px ;
-  border-bottom-right-radius:25px ;
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
   transition: all 0.3s;
 }
 .authPage .container form a {
@@ -410,13 +409,13 @@ form label {
   text-decoration: none;
   transition: all 0.3s;
 }
-.authPage .container form button:hover{
+.authPage .container form button:hover {
   background: transparent;
   border-color: white;
-  color:white;
+  color: white;
 }
-.authPage .container form a:hover{
-  color: black;
+.authPage .container form a:hover {
+  color: #f77b10fa;
 }
 
 @media (max-width: 1520px) {
@@ -454,29 +453,28 @@ form label {
 .allsubject,
 .subjectAllocation,
 .teacherdetials,
-.adminDetials,.teacherProfile {
+.adminDetials,
+.teacherProfile {
   margin: 55px 0px 0px 0px;
-  padding: 0px 20px 20px 20px;
+  padding: 0px 50px 20px 50px;
   min-height: 92vh;
-  /* background-color: rgb(196 194 233 / 29%); */
-  background: #FDEFFD;
+  background: #fdfcef;
 }
 .coursePage,
 .allsubject,
 .subjectAllocation {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 /* ---------------------- Teacher --------------------- */
 
-.teacherData {  
+.teacherData {
   margin: 55px 0px 0px 0px;
-  min-height: 50vh;
-  padding: 20px;
-  min-height: 90vh;
-  background: #FDEFFD;
+  padding: 0px 50px 20px 50px;
+  min-height: 92vh;
+  background: #fdfcef;
 }
 
 /* ===============================Toaster Modified===================== */

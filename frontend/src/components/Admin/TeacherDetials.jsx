@@ -111,19 +111,19 @@ function TeacherDetails({ teachers, fetchTeachers }) {
   return (
     <>
       <div className="details" id="teacher-detials">
-        <h4 style={{fontWeight:"700",letterSpacing:"3px",color:"black",padding:"0px 0px 0px 20px" ,borderBottom: "3px solid #ff68de"}}>All Teachers</h4>
+        <h4 style={{fontWeight:"700",letterSpacing:"3px",color:"black",padding:"0px 0px 0px 20px" ,borderBottom: "3px solid #ff7700fa"}}>All Teachers</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
             <thead>
-              <tr className="w3-teal">
+              <tr className="table-header">
                 <th>Sl. No</th>
                 <th>Teachers Name</th>
                 <th>Mobile No</th>
                 <th>Email</th>
                 <th>Gender</th>
                 <th>DateOfBirth</th>
-                <th>TeachingExperience</th>
-                <th>TeachingHours</th>
+                <th>Teaching<br/>Experience</th>
+                <th>Teaching<br/>Hours</th>
                 <th>Action</th>
               </tr>
             </thead>

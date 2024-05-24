@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import { PiUserCircleThin } from "react-icons/pi";
+import { GiTeacher } from "react-icons/gi";
 import { IoBookSharp } from "react-icons/io5";
+import { RiContactsFill } from "react-icons/ri";
 import { IoDocumentOutline } from "react-icons/io5";
+import { PiChalkboardTeacherFill } from "react-icons/pi";
+import { GiBookshelf } from "react-icons/gi";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import {Context} from "../../main"
 
 import Card from "./Card";
 import "./DashboardCard.css";
@@ -12,6 +17,7 @@ function Dashboard() {
   const [subjectCount, setSubjectCount] = useState(0);
   const [courseCount, setCourseCount] = useState(0);
   const [teacherCount, setTeacherCount] = useState(0);
+  const { isAuthorized, setIsAuthorized, user } = useContext(Context);
 
   useEffect(() => {
     // Fetch total subject count from API
@@ -61,7 +67,7 @@ function Dashboard() {
           style={{
             color: "black",
             fontWeight: "600",
-            borderBottom: "3px solid #ff68de",
+            borderBottom: "3px solid #ff7700fa",
             borderRadius:"5px"
           }}
         >
@@ -88,7 +94,7 @@ function Dashboard() {
         <Card
           title="Subjects"
           subtitle="Avilable Subjects"
-          IconComponent={IoBookSharp}
+          IconComponent={GiBookshelf}
           teacherCount={subjectCount}
           path="/admin/subjects"
           bgcolor="#c9a95f"
@@ -102,15 +108,15 @@ function Dashboard() {
         />
         <Card
           title="Admin Profile"
-          subtitle="Admin Detials"
-          IconComponent={IoBookSharp}
+          subtitle={user.name}
+          IconComponent={RiContactsFill}
           path="/admin/profile"
           bgcolor="#fc5c7d"
         />
         <Card
           title="Teachers"
           subtitle="Teacher All Detials"
-          IconComponent={IoBookSharp}
+          IconComponent={PiChalkboardTeacherFill}
           path="/admin/teachers"
           bgcolor="#3a8f7f"
         />

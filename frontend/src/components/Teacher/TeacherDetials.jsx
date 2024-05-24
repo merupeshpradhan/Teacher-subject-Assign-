@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { ImUser } from "react-icons/im";
 import { Context } from "../../main";
-import "./Admin.css";
+import "./Teacher.css";
 import toast from "react-hot-toast";
 
 function TeacherDetials() {

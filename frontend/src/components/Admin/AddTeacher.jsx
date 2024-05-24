@@ -138,7 +138,13 @@ function AddTeacher({ onTeacherAdded }) {
         <div className="form-group gender">
           <label>Gender</label>
           <div className="gender-options">
-            <label style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <input
                 style={{ width: "25px" }}
                 type="radio"
@@ -149,7 +155,13 @@ function AddTeacher({ onTeacherAdded }) {
               />
               Male
             </label>
-            <label style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+            <label
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <input
                 style={{ width: "25px" }}
                 type="radio"
@@ -169,29 +181,7 @@ function AddTeacher({ onTeacherAdded }) {
       </form>
       <style>
         {`
-        .addData {
-          display: flex;
-          justify-content: center;
-          height: fit-content;
-        }
-
-        form {
-          background: #dcd3ea;
-          max-width: 600px;
-          width: 100%;
-          padding:20px;
-          border-radius: 7px;
-          box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
-        }
-
-        form h2 {
-          font-size: 20px;
-          text-align: left;
-          font-weight: 500;
-          margin-bottom: 20px.
-        }
-
-        .form-sections {
+          .form-sections {
           display: flex;
           justify-content: space-between;
           flex-wrap: wrap;
@@ -201,33 +191,6 @@ function AddTeacher({ onTeacherAdded }) {
           flex: 1;
           padding: 10px;
         }
-
-        .form-group {
-          margin-bottom: 15px;
-        }
-
-        form label {
-          display: block;
-          font-size: 15px;
-        }
-
-        form input,
-        form select {
-          height: 45px;
-          padding: 10px;
-          width: 100%;
-          font-size: 15px;
-          outline: none;
-          border-radius: 20px;
-          border: 1px solid #bfbfbf;
-          transition: border-color 0.2s;
-        }
-
-        form input:focus,
-        form select:focus {
-          border-color: #8a5a5a.
-        }
-
         .gender-options {
           display: flex;
           gap: 20px;
@@ -237,37 +200,6 @@ function AddTeacher({ onTeacherAdded }) {
           height: 15px;
           width: 15px;
           margin-right: 5px;
-        }
-
-        .submit-btn {
-          text-align: center.
-        }
-
-        .submit-btn input {
-          color: white;
-          border: none;
-          font-size: 16px;
-          padding: 13px.
-          border-radius: 5px.
-          cursor: pointer.
-          font-weight: 500.
-          text-align: center.
-          background: #3b376e.
-          transition: background 0.2s.
-        }
-
-        .submit-btn input:hover {
-          background: #262346.
-        }
-
-        @media only screen and (max-width: 768px) {
-          form {
-            max-width: 100%.
-          }
-
-          .form-column {
-            flex: 1 1 100%.
-          }
         }
         `}
       </style>

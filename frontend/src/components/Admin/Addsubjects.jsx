@@ -55,7 +55,7 @@ function Addsubjects({ onCourseAdded }) {
   return (
     <>
       <div className="addData">
-        <form onSubmit={handleSubmit} style={{padding:"20px"}}>
+        <form onSubmit={handleSubmit} style={{ padding: "20px" }}>
           <h2>Add a new Subject</h2>
           <div className="form-group subject">
             <label htmlFor="subject">Subject Name</label>
@@ -102,7 +102,14 @@ function Addsubjects({ onCourseAdded }) {
               onChange={(e) => setSubjectCode(e.target.value)}
             />
           </div>
-          <div className="form-group submit-btn">
+          <div
+            className="form-group submit-btn"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <input type="submit" value="Add Course" />
           </div>
         </form>

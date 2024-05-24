@@ -31,15 +31,17 @@ function AdminCourses() {
             style={{
               color: "black",
               fontWeight: "600",
-              borderBottom: "3px solid #ff68de",
-              borderRadius:"5px"
+              borderBottom: "3px solid #ff7700fa",
+              borderRadius: "5px",
             }}
           >
             Courses
           </h4>
         </div>
-        <AddCourse onCourseAdded={handleCourseAdded} />
-        <CourseDetials courses={courses} fetchCourses={fetchCourses} />
+        <div style={{display:"flex",gap:"50px"}}>
+          <AddCourse onCourseAdded={handleCourseAdded} />
+          <CourseDetials courses={courses} fetchCourses={fetchCourses} />
+        </div>
       </section>
     </>
   );

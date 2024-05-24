@@ -47,14 +47,20 @@ function TeacherData() {
             style={{
               color: "black",
               fontWeight: "600",
-              borderBottom: "3px solid #ff68de",
+              borderBottom: "3px solid #ff7700fa",
+              borderRadius:"5px"
             }}
           >
             Subject Preference
           </h4>
         </div>
-        <AddSubject onTeacherAdded={handleCourseAdded} />
-        <PreferenceSubject teachers={teachers} fetchTeachers={fetchTeachers} />
+        <div style={{display:"flex",gap:"50px"}}>
+          <AddSubject onTeacherAdded={handleCourseAdded} />
+          <PreferenceSubject
+            teachers={teachers}
+            fetchTeachers={fetchTeachers}
+          />
+        </div>
       </section>
     </>
   );
