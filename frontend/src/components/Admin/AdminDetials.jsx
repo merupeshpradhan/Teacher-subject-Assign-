@@ -46,7 +46,7 @@ function AdminDetials() {
       <div className="admin-detials-main">
         <div className="admin-detials-left">
           <div className="admin-image">
-            <ImUser style={{ fontSize: "130px", color: "#949294" }} />
+            <ImUser style={{ fontSize: "160px", color: "#949294" }} />
           </div>
           <div className="admin-name">
             <h2>{user.name}</h2>

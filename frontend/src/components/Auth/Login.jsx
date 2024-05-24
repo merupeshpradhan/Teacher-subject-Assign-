@@ -46,15 +46,20 @@ const Login = () => {
       <section
         style={{
           background:
-            "radial-gradient(circle, rgba(192,228,234,1) 7%, rgba(230,77,246,1) 90%)",
+            "radial-gradient(circle, rgba(255,173,84,1) 16%, rgba(255,175,84,1) 24%, rgba(255,216,84,1) 59%, rgba(255,250,84,1) 81%)",
           height: "100vh",
           padding: "0px 20px 20px 20px",
         }}
       >
         <div className="header">
-          <h3 style={{ margin: "0px", padding: "0px" }}>
-            Login to your account
-          </h3>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <h3 style={{ margin: "0px", padding: "0px" }}>
+              Login to your account
+            </h3>
+          </div>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"70%"}}>
+            <h1 style={{fontWeight:"900",color:"#ff0000c7",textDecoration:"underline"}}>Smart Subject Assign System</h1>
+          </div>
         </div>
         <div
           style={{

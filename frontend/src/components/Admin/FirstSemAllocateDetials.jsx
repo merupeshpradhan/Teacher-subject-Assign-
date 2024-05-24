@@ -133,11 +133,11 @@ function AllocateDetails({ teacherAllocated, fetchAllocatedTeacher }) {
   return (
     <>
       <div className="details" style={{height:"100%"}}>
-        <h4 style={{fontWeight:"700",letterSpacing:"3px",color:"black",padding:"0px 0px 0px 20px" ,borderBottom: "3px solid #ff68de"}}>1st Semester Allocated Teachers</h4>
+        <h4 style={{fontWeight:"700",letterSpacing:"3px",color:"black",padding:"0px 0px 0px 20px" ,borderBottom: "3px solid #ff7700fa"}}>1st Semester Allocated Teachers</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
             <thead>
-              <tr className="w3-teal">
+              <tr className="table-header">
                 <th>Sl. No</th>
                 <th>Subject Name</th>
                 <th>Semester</th>

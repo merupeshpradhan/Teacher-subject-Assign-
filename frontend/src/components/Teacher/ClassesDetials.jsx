@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import "./Admin.css";
+import "./Teacher.css";
 import { Context } from "../../main";
 
 function ClassesDetials({ teachers, fetchTeachers }) {
@@ -70,7 +70,7 @@ function ClassesDetials({ teachers, fetchTeachers }) {
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
             <thead>
-              <tr className="w3-teal">
+              <tr className="table-header">
                 <th>Sl. No</th>
                 <th>Course Name</th>
                 <th>Semester</th>

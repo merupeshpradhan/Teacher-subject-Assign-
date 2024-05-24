@@ -76,11 +76,11 @@ function Subjectdetails({ subjects, fetchSubjects }) {
   return (
     <>
       <div className="details ">
-        <h4 style={{fontWeight:"700",letterSpacing:"3px",color:"black",padding:"0px 0px 0px 20px" ,borderBottom: "3px solid #ff68de"}}>All Subjects</h4>
+        <h4 style={{fontWeight:"700",letterSpacing:"3px",color:"black",padding:"0px 0px 0px 20px" ,borderBottom: "3px solid #ff7700fa"}}>All Subjects</h4>
         <div className="w3-container">
           <table className="w3-table w3-striped w3-border">
             <thead>
-              <tr className="w3-teal">
+              <tr className="table-header">
                 <th>Sl. No</th>
                 <th>Subject Name</th>
                 <th>Course Name</th>

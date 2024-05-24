@@ -102,7 +102,7 @@ function AllocateSubject({ onCourseAdded }) {
               ))}
             </select>
           </div>
-          <div className="form-group submit-btn">
+          <div className="form-group submit-btn" style={{display:"flex",justifyContent:"center", alignItems:"center"}}>
             <input type="submit" value="Allocate Subject" />
           </div>
         </form>

@@ -56,7 +56,7 @@ const Navbar = () => {
       >
         <div className="logo">
           <div style={{ cursor: "pointer", fontWeight: "600" }}>
-            <Link style={{textDecoration:"none"}} to={"/"}>ASAS</Link>
+            <Link style={{textDecoration:"none",color:"rgb(255 119 0)",letterSpacing:"4px"}} to={"/"}>ASAS</Link>
           </div>
           <div
             style={{
@@ -64,6 +64,7 @@ const Navbar = () => {
               alignItems: "center",
               cursor: "pointer",
               fontSize: "32px",
+              color:"rgb(255 119 0)"
             }}
             onClick={toggleSidebar}
           >
@@ -127,20 +128,20 @@ const Navbar = () => {
               </li>
               <li style={{ marginBottom: "30px" }}>
                 <Link to={"/teacher/preference"} onClick={() => setShow(false)}>
-                  <i className="bx bx-user"></i>
+                  <i className="bx bxs-book "></i>
                   <span className="links_name">Preference subject</span>
                 </Link>
               </li>
               <li style={{ marginBottom: "30px" }}>
                 <Link to={"/teacher/classes"} onClick={() => setShow(false)}>
-                  <i className="bx bx-user"></i>
+                  <i className="bx bxs-book-reader"></i>
                   <span className="links_name">Classes</span>
                 </Link>
               </li>
               <li style={{ marginBottom: "30px" }}>
-                <Link to={"/teacher/Detials"} onClick={() => setShow(false)}>
+                <Link to={"/teacher/profile"} onClick={() => setShow(false)}>
                   <i className="bx bx-user"></i>
-                  <span className="links_name">Teacher Details</span>
+                  <span className="links_name">Teacher Profile</span>
                 </Link>
               </li>
             </>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AllocateSubject from "./AllocateSubject";
 import FirstSemAllocateDetials from "./FirstSemAllocateDetials";
-import SecondSemAllocateDetials from "./SecondSemAllocateDetials";
 
 const AdminSubjectAllocation = () => {
   const [teacherAllocated, setTeacherAllocated] = useState([]);
@@ -34,22 +33,21 @@ const AdminSubjectAllocation = () => {
             style={{
               color: "black",
               fontWeight: "600",
-              borderBottom: "3px solid #ff68de",
-              borderRadius:"5px"
+              borderBottom: "3px solid #ff7700fa",
+              borderRadius: "5px",
             }}
           >
             Subject Allocation
           </h4>
         </div>
-        <AllocateSubject onCourseAdded={handleCourseAdded} />
-        <FirstSemAllocateDetials
-          teacherAllocated={teacherAllocated}
-          fetchAllocatedTeacher={fetchAllocatedTeacher}
-        />
-        <SecondSemAllocateDetials
-          teacherAllocated={teacherAllocated}
-          fetchAllocatedTeacher={fetchAllocatedTeacher}
-        />
+        <div style={{ display: "flex", gap: "50px" }}>
+          <AllocateSubject onCourseAdded={handleCourseAdded} />
+
+          <FirstSemAllocateDetials
+            teacherAllocated={teacherAllocated}
+            fetchAllocatedTeacher={fetchAllocatedTeacher}
+          />
+        </div>
       </section>
     </>
   );

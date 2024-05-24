@@ -1,10 +1,10 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Addsubjects from "./Addsubjects";
 import Subjectdetails from "./Subjectdetails";
 
 const AdminSubjects = () => {
-  const [subjects,setSubjects] = useState([]);
+  const [subjects, setSubjects] = useState([]);
 
   useEffect(() => {
     fetchSubjects();
@@ -26,20 +26,22 @@ const AdminSubjects = () => {
   return (
     <>
       <section className="allsubject">
-      <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
+        <div style={{ display: "flex", justifyContent: "end", width: "100%" }}>
           <h4
             style={{
               color: "black",
               fontWeight: "600",
-              borderBottom: "3px solid #ff68de",
-              borderRadius:"5px"
+              borderBottom: "3px solid #ff7700fa",
+              borderRadius: "5px",
             }}
           >
             Subjects
           </h4>
         </div>
-        <Addsubjects onCourseAdded={handleCourseAdded}/>
-        <Subjectdetails subjects={subjects} fetchSubjects={fetchSubjects}/>
+        <div style={{ display: "flex", gap: "50px" }} X>
+          <Addsubjects onCourseAdded={handleCourseAdded} />
+          <Subjectdetails subjects={subjects} fetchSubjects={fetchSubjects} />
+        </div>
       </section>
     </>
   );

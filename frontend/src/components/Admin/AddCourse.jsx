@@ -51,7 +51,7 @@ function AddCourse({ onCourseAdded }) {
               onChange={(e) => setBranch(e.target.value)}
             />
           </div>
-          <div className="form-group submit-btn">
+          <div className="form-group submit-btn" style={{display:"flex",justifyContent:"center", alignItems:"center"}}>
             <input type="submit" value="Add Course" />
           </div>
         </form>

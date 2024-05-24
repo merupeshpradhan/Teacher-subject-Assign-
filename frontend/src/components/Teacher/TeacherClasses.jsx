@@ -46,7 +46,7 @@ const TeacherClasses = () => {
             style={{
               color: "black",
               fontWeight: "600",
-              borderBottom: "3px solid #ff68de",
+              borderBottom: "3px solid #ff9940fa",
             }}
           >
             Classes Time

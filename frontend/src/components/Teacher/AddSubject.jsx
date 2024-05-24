@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
-import "./Admin.css";
+import "./Teacher.css";
 
 function AddSubject({ onTeacherAdded }) {
   const { user } = useContext(Context);
@@ -169,7 +169,7 @@ function AddSubject({ onTeacherAdded }) {
             </label>
           </div>
         </div>
-        <div className="form-group submit-btn" style={{ marginTop: "20px" }}>
+        <div className="form-group submit-btn" style={{ marginTop: "20px",display:"flex",justifyContent:"center",justifyItems:"center"}}>
           <input
             type="submit"
             style={{ padding: "10px" }}
