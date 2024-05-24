@@ -453,7 +453,8 @@ form label {
 .coursePage,
 .allsubject,
 .subjectAllocation,
-.teacherdetials {
+.teacherdetials,
+.adminDetials,.teacherProfile {
   margin: 55px 0px 0px 0px;
   padding: 0px 20px 20px 20px;
   min-height: 92vh;

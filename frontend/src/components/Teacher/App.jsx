@@ -22,9 +22,8 @@ import TeacherClasses from "./components/Teacher/TeacherClasses";
 import NotFound from "./components/NotFound/NotFound";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
-import TeacherPreference from "./components/Teacher/TeacherPreference";
+import TeacherData from "./components/Teacher/TeacherData";
 import AdminProfile from "./components/Admin/AdminProfile";
-import TeacherProfile from "./components/Teacher/TeacherProfile";
 
 const App = () => {
   const { isAuthorized, setIsAuthorized, setUser } = useContext(Context);
@@ -63,9 +62,8 @@ const App = () => {
             element={<AdminSubjectAllocation />}
           />
           <Route path="/admin/profile" element={<AdminProfile />} />
-          <Route path="/teacher/preference" element={<TeacherPreference />} />
+          <Route path="/teacher/preference" element={<TeacherData />} />
           <Route path="/teacher/classes" element={<TeacherClasses />} />
-          <Route path="/teacher/profile" element={<TeacherProfile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         {/* <Footer /> */}

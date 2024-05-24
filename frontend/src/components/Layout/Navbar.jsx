@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState,useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { Context } from "../../main";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -38,11 +38,10 @@ const Navbar = () => {
     }
 
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-
   }, [navbarRef]);
 
   const toggleSidebar = () => {
@@ -51,21 +50,36 @@ const Navbar = () => {
 
   return (
     <>
-      <nav ref = {navbarRef} className={isAuthorized ? "navbarShow" : "navbarHide"}>
+      <nav
+        ref={navbarRef}
+        className={isAuthorized ? "navbarShow" : "navbarHide"}
+      >
         <div className="logo">
-          <div style={{ cursor: "pointer", fontWeight: "600" }}>ASAS</div>
+          <div style={{ cursor: "pointer", fontWeight: "600" }}>
+            <Link style={{textDecoration:"none"}} to={"/"}>ASAS</Link>
+          </div>
           <div
-            style={{ display: "flex", alignItems: "center", cursor: "pointer",fontSize:"32px" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              cursor: "pointer",
+              fontSize: "32px",
+            }}
             onClick={toggleSidebar}
           >
-            {isOpen ? <CgMenuMotion  /> : <BiMenuAltRight />}
+            {isOpen ? <CgMenuMotion /> : <BiMenuAltRight />}
           </div>
         </div>
         <div className="container">
           <button onClick={handleLogout}>LOGOUT</button>
         </div>
       </nav>
-      <section ref = {navbarRef} className={`sidebar ${isOpen ? "sidebarOpen" : "sidebarClose"} ${isAuthorized ? "navbarShow" : "navbarHide"}`}>
+      <section
+        ref={navbarRef}
+        className={`sidebar ${isOpen ? "sidebarOpen" : "sidebarClose"} ${
+          isAuthorized ? "navbarShow" : "navbarHide"
+        }`}
+      >
         <ul className={`nav-list ${isOpen ? "listShow" : "listHidden"}`}>
           {user && user.role === "admin" ? (
             <>
@@ -105,14 +119,14 @@ const Navbar = () => {
           )}
           {user && user.role == "teacher" ? (
             <>
-              <li style={{ marginBottom: "30px",marginTop:"20px" }}>
+              <li style={{ marginBottom: "30px", marginTop: "20px" }}>
                 <Link to={"/"} onClick={() => setShow(false)}>
                   <i className="bx bx-grid-alt"></i>
                   <span className="links_name">Dashboard</span>
                 </Link>
               </li>
               <li style={{ marginBottom: "30px" }}>
-                <Link to={"/teacher/dashboard"} onClick={() => setShow(false)}>
+                <Link to={"/teacher/preference"} onClick={() => setShow(false)}>
                   <i className="bx bx-user"></i>
                   <span className="links_name">Preference subject</span>
                 </Link>

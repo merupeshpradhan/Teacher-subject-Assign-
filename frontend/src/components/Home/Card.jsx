@@ -29,7 +29,7 @@ function Card({ title, subtitle,IconComponent, teacherCount, path,bgcolor }) {
           <div className="middle">
             <div className="detials">
               
-              {user && user.role === "admin" ? (
+              {user && user.role === "admin" && teacherCount >=0 ? (
                 <p
                 style={{
                   textAlign: "center",

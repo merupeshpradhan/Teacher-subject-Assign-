@@ -118,18 +118,18 @@ form label {
   border: 1px solid #bfbfbf;
 }
 
-.addData form .form-group input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{
+.addData form .form-group input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 
 form input:focus,
 form select:focus {
   border: 1px solid #e919dc !important;
   /* background: white; */
 }
-form .form-group select{
+form .form-group select {
   height: 45px;
   padding: 10px;
   width: 100%;
@@ -139,7 +139,7 @@ form .form-group select{
   border-radius: 16px;
   border: 1px solid #bfbfbf;
 }
-form .form-group select option{
+form .form-group select option {
   background: white;
 }
 
@@ -178,6 +178,85 @@ form small {
   background: #262346;
 }
 
+/* ==============================Admin Detials============================ */
+
+.admin-detials-main {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 10px;
+  border:2px solid #e919dc;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+.admin-detials-main .admin-detials-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  justify-content: center;
+}
+
+.admin-detials-main .admin-detials-left .admin-image {
+  border: 2px solid #e919dc;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-detials-main .admin-detials-left .admin-name h2{
+  font-weight: 700;
+
+}
+.admin-detials-main .admin-detials-right{
+  width: 50%;
+}
+.admin-detials-main .admin-detials-right .admin-personal-detials{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+  flex-direction: column;
+  padding: 30px;
+}
+.admin-btn{
+  background: #e919dc;
+  border: 1px solid #e919dc;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  /* padding: 3px 18px 3px 18px; */
+  padding: 3px 20px 2px 20px;
+  letter-spacing: 1px;
+}
+.admin-save-btn{
+  background: #078e26;
+  border: 1px solid #078e26;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 14px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 3px 20px 2px 20px;
+  letter-spacing: 1px;
+}
+.admin-btn:hover{
+  background: white;
+  color: #e919dc;
+  border-color:#e919dc;
+}
+.admin-save-btn:hover{
+  background: white;
+  color: #078e26;
+  border-color: #078e26;
+}
 /* ==============================Responsive============================ */
 
 @media only screen and (max-width: 600px) {
