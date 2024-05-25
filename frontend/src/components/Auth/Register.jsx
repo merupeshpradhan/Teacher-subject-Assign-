@@ -64,7 +64,7 @@ const Register = () => {
             </h3>
           </div>
           <div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"70%"}}>
-            <h1 style={{fontWeight:"900",color:"#ff0000c7",textDecoration:"underline"}}>Smart Subject Assign System</h1>
+            <h1 style={{fontWeight:"900",color:"#ff0000c7",textDecoration:"underline"}}>Smart "Subject-Teacher" Assign System</h1>
           </div>
         </div>
         <div

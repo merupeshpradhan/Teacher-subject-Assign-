@@ -56,7 +56,7 @@ const Navbar = () => {
       >
         <div className="logo">
           <div style={{ cursor: "pointer", fontWeight: "600" }}>
-            <Link style={{textDecoration:"none",color:"rgb(255 119 0)",letterSpacing:"4px"}} to={"/"}>ASAS</Link>
+            <Link style={{textDecoration:"none",color:"rgb(255 119 0)",letterSpacing:"4px"}} to={"/"}>SSTAS</Link>
           </div>
           <div
             style={{
@@ -71,6 +71,9 @@ const Navbar = () => {
             {isOpen ? <CgMenuMotion /> : <BiMenuAltRight />}
           </div>
         </div>
+            <div>
+              <h5 style={{fontWeight:"700",color:"rgb(255 119 0)"}}>Smart "Subject-Teacher" Assign System</h5>
+            </div>
         <div className="container">
           <button onClick={handleLogout}>LOGOUT</button>
         </div>
